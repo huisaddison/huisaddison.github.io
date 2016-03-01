@@ -17230,7 +17230,7 @@ edges: [
 				.data(dataset.nodes)
 				.enter()
 				.append("circle")
-                .attr("id", "node12")
+                .attr("id", function(d) { return "node" + d.name; })
 				.attr("r", 10)
 				.style("fill", function(d, i) {
 					return colors(d.cluster);
