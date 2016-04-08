@@ -17,12 +17,14 @@ body {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
+// Declare color template
 var colors = d3.scale.category10();
 
 var svg = d3.select("body").append("svg");
 
 var force = d3.layout.force();
 
+// Load JSON file
 d3.json("outPartition.json", function(error, graph) {
   if (error) throw error;
 
@@ -33,16 +35,19 @@ d3.json("outPartition.json", function(error, graph) {
       .start();
 
   var edge = svg.selectAll(".edge")
-      .data(graph.edges)
-    .enter().append("line")
+      .data(graph.edges).enter()
+      .append("line")
       .attr("class", "edge");
 
   var node = svg.selectAll(".node")
-      .data(graph.nodes)
-    .enter().append("circle")
+      .data(graph.nodes).enter()
+      .append("circle")
       .attr("class", "node")
+      // Give each node an ID for element inspection
       .attr("id", function(d) { return "node" + d.name; })
-      .attr("r", 2.5)
+      // Set size of node; can be modified to depend on data
+      .attr("r", 1)
+      // Set color based on cluster number
 	  .style("fill", function(d, i) {
 	    return colors(d.cluster);
 	  });
