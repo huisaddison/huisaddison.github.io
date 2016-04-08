@@ -32,7 +32,7 @@ d3.json("outPartition.json", function(error, graph) {
       .on("tick", tick)
       .start();
 
-  var edges = svg.selectAll(".edge")
+  var edge = svg.selectAll(".edge")
       .data(graph.edges)
     .enter().append("line")
       .attr("class", "edge");
