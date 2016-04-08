@@ -17,6 +17,8 @@ body {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
+var colors = d3.scale.category10();
+
 var svg = d3.select("body").append("svg");
 
 var force = d3.layout.force();
