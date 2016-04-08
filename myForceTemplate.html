@@ -8,12 +8,8 @@ body {
   overflow: hidden;
 }
 
-.link {
+.edge{
   stroke: #ccc;
-}
-
-.node {
-  fill: steelblue;
 }
 
 </style>
@@ -30,26 +26,30 @@ d3.json("outPartition.json", function(error, graph) {
 
   force
       .nodes(graph.nodes)
-      .links(graph.links)
+      .edges(graph.edges)
       .on("tick", tick)
       .start();
 
-  var link = svg.selectAll(".link")
-      .data(graph.links)
+  var edges = svg.selectAll(".edge")
+      .data(graph.edges)
     .enter().append("line")
-      .attr("class", "link");
+      .attr("class", "edge");
 
   var node = svg.selectAll(".node")
       .data(graph.nodes)
     .enter().append("circle")
       .attr("class", "node")
-      .attr("r", 4.5);
+      .attr("id", function(d) { return "node" + d.name; })
+      .attr("r", 10)
+	  .style("fill", function(d, i) {
+	    return colors(d.cluster);
+	  });
 
   resize();
   d3.select(window).on("resize", resize);
 
   function tick() {
-    link.attr("x1", function(d) { return d.source.x; })
+    edge.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
         .attr("y2", function(d) { return d.target.y; });
@@ -66,4 +66,3 @@ d3.json("outPartition.json", function(error, graph) {
 });
 
 </script>
-
