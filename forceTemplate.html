@@ -39,7 +39,6 @@ d3.json("outPartition.json", function(error, graph) {
       .data(graph.nodes)
     .enter().append("circle")
       .attr("class", "node")
-      .attr("r", 10)
       .attr("id", function(d) { return "node" + d.name; })
       .attr("r", 10)
 	  .style("fill", function(d, i) {
