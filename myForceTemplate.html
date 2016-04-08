@@ -21,7 +21,7 @@ var svg = d3.select("body").append("svg");
 
 var force = d3.layout.force();
 
-d3.json("outPartition.json", function(error, graph) {
+d3.json("./outPartition.json", function(error, graph) {
   if (error) throw error;
 
   force
