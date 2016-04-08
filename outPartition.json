@@ -1,5 +1,5 @@
 {
-nodes: [
+"nodes": [
     {
         "name": "587",
         "cluster": "0"
@@ -3261,7 +3261,7 @@ nodes: [
         "cluster": "0"
     }
 ],
-edges: [
+"edges": [
     {
         "target": 406,
         "source": 531
