@@ -42,7 +42,7 @@ d3.json("outPartition.json", function(error, graph) {
     .enter().append("circle")
       .attr("class", "node")
       .attr("id", function(d) { return "node" + d.name; })
-      .attr("r", 4.5)
+      .attr("r", 2.5)
 	  .style("fill", function(d, i) {
 	    return colors(d.cluster);
 	  });
