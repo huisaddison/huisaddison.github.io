@@ -25,7 +25,7 @@
 * Implementing approximations to second-order optimization algorithms (e.g.,
   sketched Newton) in distributed settings 
 
-#### **Research Assistant, Yale Inst. for Network Science** | Aug. 2016 - May 2016
+#### **Research Assistant, Yale Inst. for Network Sci.** | Aug. 2015 - May 2016
 * Wrote pruning and local clustering algorithms based on novel research (C++)
 * Data cleanup and analysis in R and Python 
 
