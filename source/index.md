@@ -32,3 +32,6 @@
 ## Projects
 * [newton-sketch](https://github.com/huisaddison/newton-sketch): Implementation of [Newton Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic Convergence](https://arxiv.org/abs/1505.02250) in NumPy and Spark.
 
+## Languages
+* **Proficient**: R, Python, Spark (Scala), Linux, LaTeX
+* **Basic**: C, Git, MongoDB, SQL
