@@ -35,3 +35,6 @@
 ## Languages
 * **Proficient**: R, Python, Spark (Scala), Linux, LaTeX
 * **Basic**: C, Git, MongoDB, SQL
+
+## Miscellanea
+* [notes](classnotes/math300.html) from Math 300 (Topics in Analysis)
