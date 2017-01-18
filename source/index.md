@@ -10,7 +10,7 @@
   to monitor product engagement rates and outcomes 
 
 #### **Teaching Fellow, Yale Statistics; CS** | Jan. 2016 - present
-* Currently I hold office hours for a STAT 230, which serves as an introduction
+* Currently I hold office hours for STAT 230, an introduction
   to the R statistical language through applications in inference, simulation,
   model selection, $k$-means, PCA, and other methods.
 * Served in a teaching and grading role for 'Computational Tools for Data
