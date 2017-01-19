@@ -30,7 +30,12 @@
 * Data cleanup and analysis in R and Python 
 
 ## Projects
-* [newton-sketch](https://github.com/huisaddison/newton-sketch): Implementation of [Newton Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic Convergence](https://arxiv.org/abs/1505.02250) in NumPy and Spark.
+* [Latent Variable Inference with Factor Graphs](pdfs/LatentVariableInferenceWithFactorGraphs.pdf):
+  term project for STAT 667, a graduate-level course on probabilistic graphical
+  models.  
+* [newton-sketch](https://github.com/huisaddison/newton-sketch): Implementation of [Newton Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic Convergence](https://arxiv.org/abs/1505.02250)
+  in NumPy and Spark.
+  
 
 ## Languages
 * **Proficient**: R, Python, Spark (Scala), Linux, LaTeX
