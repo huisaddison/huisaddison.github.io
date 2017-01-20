@@ -1,5 +1,5 @@
 ## Work Experience
-#### **Data Scientist, OnCorps** | Summer 2016 | *Cambridge, MA*
+#### **Data Scientist, OnCorps (Cambridge, MA)** | Summer 2016
 
 * Authored internal R library to rapidly and faithfully visualize
   classification trees via D3.js, with integration into core products and
