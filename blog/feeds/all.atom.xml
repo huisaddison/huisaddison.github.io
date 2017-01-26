@@ -48,6 +48,7 @@ w_{ij} = \begin{cases}
 \end{align*}&lt;/div&gt;
 &lt;p&gt;The bandwidth is &lt;span class="math"&gt;\(k\)&lt;/span&gt; on either side along the diagonal; shrinkage begins on
 each side at &lt;span class="math"&gt;\(k/2\)&lt;/span&gt;.  &lt;/p&gt;
+&lt;p&gt;(To be continued!)&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
