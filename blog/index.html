@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="">	
+<head>
+	<meta charset="utf-8"/>
+	<title>huisaddison</title>	
+	<meta name="author" content="Addison">
+	
+
+	<link rel="top" href="#" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="http://huisaddison.com/blog/theme/css/main.css" type="text/css" />
+		
+
+</head>
+	
+<body>
+
+    <div class="container">
+	  
+	  <header role="banner">
+	    <div class="feeds">
+	    </div>
+		<a href="http://huisaddison.com/blog" class="title">huisaddison</a>
+      </header>
+	
+	  <div class="wrapper">
+
+		  <div role="main" class="content">
+
+
+
+      <article>
+        <h1><a href="http://huisaddison.com/blog/discuss-covmat-optimal-convergence.html">Discussion: Optimal Rates of Convergence for Covariance Matrix Estimation</a></h1>
+        <p>For the past couple of days, I have been reading <a href="https://arxiv.org/abs/1010.3866">Optimal Rates of Convergence
+for Covariance Matrix Estimation</a>.  In this
+post, we will discuss the results from the paper and walk through steps of the
+proofs.</p>
+<h2>Background</h2>
+<p>The authors in this paper establish optimal rates of convergence for estimating
+the covariance matrix under the operator norm (which, in Euclidean distance,
+coincides with the spectral norm) and the Frobenius norm; i.e., they provide
+lower bounds on the max risk and show that the minimax upper bound of their
+tapering estimators achieves this rate.</p>
+<p>First, they construct the following parameter space of <span class="math">\(p\times{p}\)</span> covariance
+matrices:
+</p>
+<div class="math">\begin{equation}\label{eq:parameter-space}
+\mathcal{F}(M_0, M) = \left\{
+\Sigma: \max_j \sum_j \{|\sigma_{ij}|: |i-j| &gt; k\} \leq M k^{-\alpha}
+\text{ for all } k, \text{and} \lambda_{\text{max}}(\Sigma)\leq M_0
+\right\}
+\end{equation}</div>
+<p>
+This definition states that for the covariance matrices in this space, the sum
+of the absolute values of the entries <span class="math">\(k\)</span> away from the diagonal decay with
+<span class="math">\(k^{-\alpha}\)</span>, where <span class="math">\(\alpha\)</span> is a smoothing parameter.  The bound
+will play an important proof in the later proofs.</p>
+<p><strong>Theorem.</strong> The minimax risk of estimating the covariance matrix <span class="math">\(\Sigma\)</span>
+over the class <span class="math">\(\mathcal{P}_\alpha\)</span> given above satisfies
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{P}_\alpha}
+\mathbf{E}\Vert \hat\Sigma - \Sigma\Vert^2 \asymp
+\min\left\{n^{-\frac{2\alpha}{2\alpha+1}}+\frac{\log p}{n}, \frac{p}{n}\right\}
+$$</div>
+<p>
+where <span class="math">\(\mathcal{P}_\alpha = \mathcal{P}_\alpha(M_0, M, \rho)\)</span> is the set of all
+distributions of <span class="math">\(X\)</span> that satisfies both Equations \eqref{eq:parameter-space}
+and \eqref{eq:subgaussian}</p>
+<p>To estimate <span class="math">\(\Sigma\)</span> by tapering the maximum likelihood estimator:
+</p>
+<div class="math">\begin{equation}\label{eq:tapering-estimator}
+\hat\Sigma = \hat\Sigma_k = \left(w_{ij}\sigma^*_{ij}\right)_{p\times p}
+\end{equation}</div>
+<p>
+where <span class="math">\(\sigma^*_{ij}\)</span> are the entries in the maximum likelihood estimator
+<span class="math">\(\Sigma^*\)</span> and the weights are given by:
+</p>
+<div class="math">\begin{align*}
+w_{ij} = \begin{cases}
+    1   &amp;\text{ for } |i - j| \leq \frac{k}{2}   \\
+    2 - 2\frac{|i-j|}{k} &amp;\text{ for } \frac{k}{2} \leq |i - j| \leq k  \\
+    0   &amp;\text{ otherwise }
+\end{cases}
+\end{align*}</div>
+<p>The bandwidth is <span class="math">\(k\)</span> on either side along the diagonal; shrinkage begins on
+each side at <span class="math">\(k/2\)</span>.  As a technical note, such a tapering estimator may be
+rewritten as a sum of block matrices along the diagonal; this is used in the
+proofs to attain concentration bounds via random matrix theory.</p>
+<h2>Minimax Upper Bound under the Operator Norm</h2>
+<p>The authors assume that the <span class="math">\(X_i\)</span>'s are subgaussian; that is, there exists
+<span class="math">\(\rho &gt; 0\)</span> such that:
+</p>
+<div class="math">\begin{equation}\label{eq:subgaussian}
+\mathbf{P}\{|v^T(X_1 - \mathbf{E} X_1| &gt; t\} \leq \exp\left\{
+-\frac{t^2\rho}{2}\right\}
+\end{equation}</div>
+<p>
+for all <span class="math">\(t &gt; 0\)</span> and <span class="math">\(\Vert{v}\Vert_2=1\)</span>.</p>
+<p><strong>Theorem.</strong> <em>The tapering estimator <span class="math">\(\hat\Sigma_k\)</span> defined in Equation
+\eqref{eq:tapering-estimator} with <span class="math">\(p \geq n^{\frac{1}{2\alpha+1}}\)</span> satisfies</em>
+</p>
+<div class="math">\begin{equation}
+\sup_{\mathcal{P}_\alpha}\mathbf{E}\Vert \hat\Sigma_k - \Sigma\Vert^2 \leq C
+\frac{k+\log p}{n} + Ck^{-2\alpha}
+\end{equation}</div>
+<p>
+<em>for <span class="math">\(k = O(n), \log p = O(n)\)</span> and some constant <span class="math">\(C &gt; 0\)</span>.</em></p>
+<p>To prove this, the authors assume <span class="math">\(\mu = 0\)</span> and analyze
+</p>
+<div class="math">$$
+\tilde \Sigma = \frac{1}{n}\sum_{i=1}^n X_l X_l^\cap
+$$</div>
+<p>
+rather than the maximum likelihood estimator
+</p>
+<div class="math">$$
+\Sigma^* = \frac{1}{n}\sum_{i=1}^n X_lX_l^\top - \bar X \bar X^\top
+$$</div>
+<p>
+as <span class="math">\(\bar X \bar X^\top\)</span> is a higher order term and can be neglected in the
+analysis of the rate.  As such, we defined a new tapering estimator:
+</p>
+<div class="math">$$
+\breve\Sigma = \left(\breve\sigma_{ij}\right)_{1 \leq i,j \leq p}
+= \left(w_{ij}\tilde\sigma_{ij}\right)_{1 \leq i,j \leq p}
+$$</div>
+<p>We observe that we may bound the risk from above by the bias and variance:
+</p>
+<div class="math">\begin{align*}
+    \mathbf{E} \Vert \breve\Sigma - \Sigma\Vert^2
+    &amp;\leq  2\mathbf{E}\Vert \breve\Sigma - \mathbf{E} \breve\Sigma\Vert^2
+        + 2\Vert\mathbf{E}\breve\Sigma- \Sigma\Vert^2
+\end{align*}</div>
+<p>
+This inequality can easily be derived by thinking about how to bound <span class="math">\((a +
+b)^2\)</span>.</p>
+<h3>Bias</h3>
+<p>To prove the bound on the bias, the authors note that the operator norm of a
+symmetric matrix is upper bounded by its <span class="math">\(\ell_1\)</span> norm.  Therefore, we have:
+</p>
+<div class="math">\begin{equation}\label{eq:operator-upperbound-bias}
+\mathbf{E}\Vert \breve\Sigma - \mathbf{E} \breve\Sigma\Vert^2
+\leq \left[\max_{i=1, \dotsc, p} \sum_{j: |i-j| &gt; k} |\sigma_{ij}\right]^2
+\leq M^2 k^{-2\alpha}
+\end{equation}</div>
+<p>
+This inequality holds by construction (see Equation \eqref{eq:parameter-space}).</p>
+<h3>Variance</h3>
+<p>The authors rely on random matrix theory to bound the variance.  Of particular
+note is</p>
+<p><strong>Lemma 2.</strong> <em>There exists a submatrix <span class="math">\(M_l^{(m)}\)</span>:</em>
+</p>
+<div class="math">$$
+\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert \leq 3 N^{(m)}
+= \Vert M_l^{(m)} - \mathbf{E} M_l^{(m)}\Vert
+$$</div>
+<p>They also provide a concentration bound on the operator norm of this submatrix.</p>
+<p><strong>Lemma 3.</strong> <em>There is a constant <span class="math">\(\rho_1 &gt; 0\)</span> such that</em>
+</p>
+<div class="math">$$
+\mathbf{P}\left\{N^{(m)} &gt; x\right\} \leq 2p5^m\exp(-nx^2\rho_1)
+$$</div>
+<p>
+<em>for all <span class="math">\(0 &lt; x &lt; \rho_1\)</span> and <span class="math">\(1-m \leq 1 \leq p\)</span>.</em></p>
+<p>Therefore, by Lemma 2, we have:
+</p>
+<div class="math">\begin{align*}
+\mathbf{E}\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert^2
+&amp;\leq 9 \mathbf{E}\left(N^{(m)}\right)^2                    \\
+&amp;= 9 \mathbf{E}\left(N^{(m)}\right)^2[I(N^{(m)} \leq x) + I(N^{(m)} &gt; x)]   \\
+&amp;\leq 9 [x^2 +\mathbf{E} \left(N^{(m)}\right)^2I(N^{(m)} &gt; x)]
+\end{align*}</div>
+<p>The next few steps are quite tricky to understand.</p>
+<p>I believe that we can recall the definition of <span class="math">\(N^{(m)}\)</span>:
+</p>
+<div class="math">$$
+N^{(m)} = \Vert M_l^{(m)} - \mathbf{E} M_l^{(m)}\Vert
+$$</div>
+<p>
+for some <span class="math">\(l\)</span>.  We observe that the operator norm of this submatrix is upper
+bounded by the operator norm of the full matrix (needs to be shown):
+</p>
+<div class="math">$$
+\Vert M_l^{(m)} - \mathbf{E} M_l^{(m)}\Vert
+\leq
+\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert
+$$</div>
+<p>
+at this point, we may split the norm by the triangle inequality:
+</p>
+<div class="math">$$
+\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert
+\leq
+\Vert \breve\Sigma\Vert + \Vert\mathbf{E}\breve\Sigma\Vert
+$$</div>
+<p>
+and bound the operator norm by the Frobenius norm (needs to be shown):
+</p>
+<div class="math">$$
+\Vert \breve\Sigma\Vert + \Vert\mathbf{E}\breve\Sigma\Vert
+\leq \Vert\breve\Sigma\Vert + C
+$$</div>
+<p>
+Finally, we may apply Cauchy-Schwarz:
+</p>
+<div class="math">\begin{align*}
+\mathbf{E}\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert^2
+&amp;\leq C_1 \left[x^2 + \mathbf{E}\left(\Vert\breve\Sigma\Vert + C\right)
+I(N^{(m)} &gt; x)\right]   \\
+&amp;\leq C_1 \left[x^2 + \sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert +
+C\right)^4} \sqrt{\mathbf{P}(N^{(m)} &gt; x)}\right]
+\end{align*}</div>
+<p>(To be continued!)</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+      </article>
+
+      <hr />
+
+        <div>
+          <h3>Last posts</h3>
+          <ol class="archive">
+    
+
+
+      <li>
+<a href="http://huisaddison.com/blog/my-first-post.html" rel="bookmark" title="Permalink to Post One">Post One</a>
+  <time datetime="2017-01-25T00:00:00-05:00" pubdate>Wed 25 January 2017</time>
+<p class="tags">tags: <a href="http://huisaddison.com/blog/tag/pelican.html">pelican</a><a href="http://huisaddison.com/blog/tag/python.html">python</a></p></a>      </li>
+
+
+      <li>
+<a href="http://huisaddison.com/blog/trying-out-mathjax.html" rel="bookmark" title="Permalink to Trying Out MathJax">Trying Out MathJax</a>
+  <time datetime="2017-01-25T00:00:00-05:00" pubdate>Wed 25 January 2017</time>
+<p class="tags">tags: <a href="http://huisaddison.com/blog/tag/pelican.html">pelican</a><a href="http://huisaddison.com/blog/tag/mathjax.html">mathjax</a><a href="http://huisaddison.com/blog/tag/math.html">math</a></p></a>      </li>
+
+
+          </ol>
+        </div>
+
+		  </div>	
+		  
+		  <div class="sidebar">
+
+	        <nav>
+	          <h2>Categories</h2>
+	          <ul>
+	              <li ><a href="http://huisaddison.com/blog/category/pelican.html">Pelican</a></li>
+	              <li ><a href="http://huisaddison.com/blog/category/python.html">Python</a></li>
+	              <li ><a href="http://huisaddison.com/blog/category/statistics.html">Statistics</a></li>
+	          </ul>
+	        </nav>
+
+
+
+		  </div>
+
+	  </div>
+
+      <footer>
+		<p role="contentinfo">
+		  © 2013 Addison - Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>. Theme <a href="https://github.com/fle/pelican-simplegrey">pelican-simplegrey</a>.
+    	</p>
+
+	  </footer>	
+
+	</div>
+	
+
+</body>
+</html>
