@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>huisaddison - Statistics</title><link href="http://huisaddison.com/blog/" rel="alternate"></link><link href="http://huisaddison.com/blog/feeds/statistics.atom.xml" rel="self"></link><id>http://huisaddison.com/blog/</id><updated>2017-01-26T00:00:00-05:00</updated><entry><title>Discussion: Optimal Rates of Convergence for Covariance Matrix Estimation</title><link href="http://huisaddison.com/blog/discuss-covmat-optimal-convergence.html" rel="alternate"></link><published>2017-01-26T00:00:00-05:00</published><updated>2017-01-26T00:00:00-05:00</updated><author><name>Addison</name></author><id>tag:huisaddison.com,2017-01-26:/blog/discuss-covmat-optimal-convergence.html</id><summary type="html">&lt;p&gt;Discussion of paper on minimax estimation of covariance matrices.&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the past couple of days, I have been reading &lt;a href="https://arxiv.org/abs/1010.3866"&gt;Optimal Rates of Convergence
+for Covariance Matrix Estimation&lt;/a&gt;.  In this
+post, we will discuss the results from the paper and walk through steps of the
+proofs.&lt;/p&gt;
+&lt;p&gt;The authors in this paper establish optimal rates of convergence for estimating
+the covariance matrix under the operator norm (which, in Euclidean distance,
+coincides with the spectral norm) and the Frobenius norm; i.e., they provide
+lower bounds on the max risk and show that the minimax upper bound of their
+tapering estimators achieves this rate.&lt;/p&gt;
+&lt;p&gt;First, they construct the following parameter space of &lt;span class="math"&gt;\(p\times{p}\)&lt;/span&gt; covariance
+matrices:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\mathcal{F}(M_0, M) = \left\{
+\Sigma: \max_j \sum_j \{|\sigma_{ij}|: |i-j| &amp;gt; k\} \leq M k^{-\alpha}
+\text{ for all } k, \text{and} \lambda_{\text{max}}(\Sigma)\leq M_0
+\right\}
+$$&lt;/div&gt;
+&lt;p&gt;
+This definition states that for the covariance matrices in this space, the sum
+of the absolute values of the entries &lt;span class="math"&gt;\(k\)&lt;/span&gt; away from the diagonal decay with
+&lt;span class="math"&gt;\(k^{-\alpha}\)&lt;/span&gt;, where &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt; is a smoothing parameter.  The bound
+will play an important proof in the later proofs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem.&lt;/strong&gt; The minimax risk of estimating the covariance matrix &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt;
+over the class &lt;span class="math"&gt;\(\mathcal{P}_\alpha\)&lt;/span&gt; given above satisfies
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\inf_{\hat\Sigma}\sup_{\mathcal{P}_\alpha}
+\mathbf{E}\Vert \hat\Sigma - \Sigma\Vert^2 \asymp
+\min\left\{n^{-\frac{2\alpha}{2\alpha+1}}+\frac{\log p}{n}, \frac{p}{n}\right\}
+$$&lt;/div&gt;
+&lt;p&gt;To estimate &lt;span class="math"&gt;\(\Sigma\)&lt;/span&gt; by tapering the maximum likelihood estimator:
+&lt;/p&gt;
+&lt;div class="math"&gt;$$
+\hat\Sigma = \hat\Sigma_k = \left(w_{ij}\sigma^*_{ij}\right)_{p\times p}
+$$&lt;/div&gt;
+&lt;p&gt;
+where &lt;span class="math"&gt;\(\sigma^*_{ij}\)&lt;/span&gt; are the entries in the maximum likelihood estimator
+&lt;span class="math"&gt;\(\Sigma^*\)&lt;/span&gt; and the weights are given by:
+&lt;/p&gt;
+&lt;div class="math"&gt;\begin{align*}
+w_{ij} = \begin{cases}
+    1   &amp;amp;\text{ for } |i - j| \leq \frac{k}{2}   \\
+    2 - 2\frac{|i-j|}{k} &amp;amp;\text{ for } \frac{k}{2} \leq |i - j| \leq k  \\
+    0   &amp;amp;\text{ otherwise }
+\end{cases}
+\end{align*}&lt;/div&gt;
+&lt;p&gt;The bandwidth is &lt;span class="math"&gt;\(k\)&lt;/span&gt; on either side along the diagonal; shrinkage begins on
+each side at &lt;span class="math"&gt;\(k/2\)&lt;/span&gt;.  &lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="math"></category><category term="stats"></category><category term="covariance"></category><category term="minimax"></category><category term="risk"></category></entry></feed>

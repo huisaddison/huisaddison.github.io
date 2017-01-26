@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>huisaddison - Python</title><link href="http://huisaddison.com/blog/" rel="alternate"></link><link href="http://huisaddison.com/blog/feeds/python.atom.xml" rel="self"></link><id>http://huisaddison.com/blog/</id><updated>2017-01-25T00:00:00-05:00</updated><entry><title>Post One</title><link href="http://huisaddison.com/blog/my-first-post.html" rel="alternate"></link><published>2017-01-25T00:00:00-05:00</published><updated>2017-01-25T00:00:00-05:00</updated><author><name>Addison</name></author><id>tag:huisaddison.com,2017-01-25:/blog/my-first-post.html</id><summary type="html">&lt;p&gt;First post in Pelican.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is my first post in my new blog, powered by Pelican.  I choose Pelican
+primarily because it is written in Python, a versatile language that I enjoy
+working with, and because it plays well with MathJax via the &lt;a href="https://github.com/barrysteyn/pelican_plugin-render_math"&gt;Math 
+Render&lt;/a&gt; plugin.&lt;/p&gt;
+&lt;p&gt;Please look forward to posts about statistics, cooking, programming, and
+amateur photography.  &lt;/p&gt;</content><category term="pelican"></category><category term="python"></category></entry></feed>
