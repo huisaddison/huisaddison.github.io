@@ -43,3 +43,5 @@
 
 ## Miscellanea
 * [notes](classnotes/math300.html) from Math 300 (Topics in Analysis)
+* [notes](pdfs/STAT262Notes.pdf) from Statistics 262 (Computational Tools for
+  Data Science 
