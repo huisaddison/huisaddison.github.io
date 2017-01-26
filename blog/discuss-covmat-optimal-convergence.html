@@ -186,8 +186,16 @@ $$</div>
 N^{(m)} = \Vert M_l^{(m)} - \mathbf{E} M_l^{(m)}\Vert
 $$</div>
 <p>
-for some <span class="math">\(l\)</span>.  We observe that the operator norm of this submatrix is upper
-bounded by the operator norm of the full matrix (needs to be shown):
+for some <span class="math">\(l\)</span>.  We note that we may bound the operator norm of a submatrix by
+the operator norm of the full matrix by recalling the definition of an
+operator norm
+</p>
+<div class="math">$$
+\Vert Av \Vert_{\mathrm{op}} = \sup\{\Vert{Av}\Vert: v \in V, \Vert v \Vert = 1\}
+$$</div>
+<p>
+and seeing that for any vector <span class="math">\(v\)</span>, <span class="math">\(\Vert A_\mathrm{sub} v \Vert \leq \Vert
+Av\Vert\)</span>.  Therefore, we may establish that:
 </p>
 <div class="math">$$
 \Vert M_l^{(m)} - \mathbf{E} M_l^{(m)}\Vert
