@@ -109,7 +109,8 @@ primarily because it is written in Python, a versatile language that I enjoy
 working with, and because it plays well with MathJax via the &lt;a href="https://github.com/barrysteyn/pelican_plugin-render_math"&gt;Math 
 Render&lt;/a&gt; plugin.&lt;/p&gt;
 &lt;p&gt;Please look forward to posts about statistics, cooking, programming, and
-amateur photography.  &lt;/p&gt;</content><category term="pelican"></category><category term="python"></category></entry><entry><title>Trying Out MathJax</title><link href="http://huisaddison.com/blog/trying-out-mathjax.html" rel="alternate"></link><published>2017-01-25T00:00:00-05:00</published><updated>2017-01-25T00:00:00-05:00</updated><author><name>Addison</name></author><id>tag:huisaddison.com,2017-01-25:/blog/trying-out-mathjax.html</id><summary type="html">&lt;p&gt;A post to try out MathJax&lt;/p&gt;</summary><content type="html">&lt;p&gt;Pelican has the ability to render mathematics using
+amateur photography.  And expect the theme of to change within the coming
+days (or weeks!)&lt;/p&gt;</content><category term="pelican"></category><category term="python"></category></entry><entry><title>Trying Out MathJax</title><link href="http://huisaddison.com/blog/trying-out-mathjax.html" rel="alternate"></link><published>2017-01-25T00:00:00-05:00</published><updated>2017-01-25T00:00:00-05:00</updated><author><name>Addison</name></author><id>tag:huisaddison.com,2017-01-25:/blog/trying-out-mathjax.html</id><summary type="html">&lt;p&gt;A post to try out MathJax&lt;/p&gt;</summary><content type="html">&lt;p&gt;Pelican has the ability to render mathematics using
 &lt;a href="https://www.mathjax.org/"&gt;MathJax&lt;/a&gt; by way of the &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/render_math"&gt;Math
 Render&lt;/a&gt; 
 plugin.&lt;/p&gt;
