@@ -10,6 +10,8 @@ Colors :
 /* Imports */
 
 @import url("pygment.css");
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300|Raleway');
+
 
 
 /* Latout */
@@ -31,17 +33,18 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Merriweather', serif;
   font-size: 16px;
   line-height: 150%;
   text-align: left;
-  color: #4D4D4C;
+  color: #18222C;
   padding: 0;
   min-width: 740px;
 }
 
 header {
   background-color: #40403F;
+  background-color: #10354C;
   height: 50px;
   line-height: 50px;
   padding: 0 1em;
@@ -120,12 +123,14 @@ header .pages a {
 /* Titles */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Source Sans Pro",sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     text-shadow: 0.1em 0.1em 0.1em #EFEFEF;
     line-height: 125%;
 }
-
+h2, h3, h4, h5, h6 {
+    color: #10354C;
+}
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
