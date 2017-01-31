@@ -90,7 +90,7 @@ define the <span class="math">\(p \times p\)</span> matrix <span class="math">\(
 b_{ij} = \mathbf{1} \{i = m \text{ and } m+1 \leq j\leq 2k, \text{ or } 
             j = m \text{ and } m+1 \leq i \leq 2k\}
 $$</div>
-<p>Setting <span class="math">\(k = n^\frac{1}{2\alpha + 1}\)</span> and <span class="math">\(a = k^{-\alpha-1)}\)</span>, we then define
+<p>Setting <span class="math">\(k = n^\frac{1}{2\alpha + 1}\)</span> and <span class="math">\(a = k^{-\alpha-1}\)</span>, we then define
 a collection of <span class="math">\(2^k\)</span> covariance matrices:
 </p>
 <div class="math">$$
@@ -102,7 +102,44 @@ a collection of <span class="math">\(2^k\)</span> covariance matrices:
 \right\}
 $$</div>
 <p>
-where <span class="math">\(0 &lt; \tau &lt; 2^{-\alpha - 1}M\)</span>.</p>
+where <span class="math">\(0 &lt; \tau &lt; 2^{-\alpha - 1}M\)</span>.  We can interpret this parameter 
+space intuitively.  First, we generate a set of <span class="math">\(k\)</span> matrices <span class="math">\(B(m, k)\)</span>,
+<span class="math">\(m \in [k]\)</span>, in which <span class="math">\(B(m, k)\)</span> is nonzero only on certain elements
+along row or column <span class="math">\(m\)</span>.  Then, for each <span class="math">\(\theta = \{0, 1\}^k\)</span>, we add
+a number of <span class="math">\(\tau a\)</span> perturbations to the identity matrix; where
+we add <span class="math">\(\tau a B(m, k)\)</span> if <span class="math">\(\theta_m \neq 0\)</span>.  This gives us a set
+of <span class="math">\(\Sigma(\theta)\)</span> of size <span class="math">\(2^k\)</span>.</p>
+<p>We now verify that <span class="math">\(\mathcal{F}_{11} \subset \mathcal{F}(M, M_0)\)</span>.  Recall
+the definition:
+</p>
+<div class="math">$$
+\mathcal{F}(M_0, M) = \left\{
+\Sigma: \max_j \sum_j \{|\sigma_{ij}|: |i-j| &gt; k\} \leq M k^{-\alpha}
+\text{ for all } k, \text{and} \lambda_{\text{max}}(\Sigma)\leq M_0
+\right\}
+$$</div>
+<p>
+Let us consider the <span class="math">\(\Sigma(\theta)\)</span> where <span class="math">\(\theta\)</span> is a vector of 
+<span class="math">\(k\)</span> ones and <span class="math">\(\tau = 2^{-\alpha - 1}M\)</span>.  Then
+</p>
+<div class="math">$$
+\Sigma(\theta) = \mathbf{I}_{p\times p}
+    + M (k + 2)^{-\alpha -1}\sum_{m=1}^k B(m, k)
+$$</div>
+<p>
+We observe that <span class="math">\(\sum_{m=1}^k B(m, k)\)</span> is a matrix of ones on the
+off-diagonals up to row and column <span class="math">\(2k \leq p\)</span>.  Therefore, the worst-case
+sum of entries more than <span class="math">\(k\)</span> away from the diagonal is:
+</p>
+<div class="math">\begin{align*}
+    \frac{k}{2} M k^{-\alpha - 1} 2^{- \alpha - 1}
+    &amp;=  M k^{-\alpha} 2^{- \alpha - 2}  \\
+    &amp;\leq M k^{-\alpha}
+\end{align*}</div>
+<p>
+Without loss of generality the authors assume <span class="math">\(M_0 &gt; 1\)</span> and <span class="math">\(\rho &gt; 1\)</span>; 
+otherwise we may replace <span class="math">\(\II_{p\times p}\)</span> with <span class="math">\(\varepsilon \II_{
+p \times p}\)</span> with <span class="math">\(\varepsilon \in (0, \min\{M_0, \rho\})\)</span>.</p>
 <p>To be continued!</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
