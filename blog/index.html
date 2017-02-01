@@ -30,7 +30,10 @@
 
       <article>
         <h1><a href="http://huisaddison.com/blog/discuss-covmat-optimal-convergence-pt2.html">Discussion: Optimal Rates of Convergence for Covariance Matrix Estimation, Part 2</a></h1>
-        <p>In this post, I will continue my discussion of <a href="https://arxiv.org/abs/1010.3866">Optimal Rates of Convergence
+        <div class="math">$$
+    \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+$$</div>
+<p>In this post, I will continue my discussion of <a href="https://arxiv.org/abs/1010.3866">Optimal Rates of Convergence
 for Covariance Matrix Estimation</a>.  A
 discussion of their first result (showing an upper bound on the risk of their
 proposed tapering estimator) can be found in a <a href="http://huisaddison.com/blog/discuss-covmat-optimal-convergence-pt1.html">previous
@@ -130,7 +133,131 @@ sum of entries more than <span class="math">\(k\)</span> away from the diagonal 
 <p>
 Without loss of generality the authors assume <span class="math">\(M_0 &gt; 1\)</span> and <span class="math">\(\rho &gt; 1\)</span>; 
 otherwise we may replace <span class="math">\(\mathbf{I}_{p\times p}\)</span> with <span class="math">\(\varepsilon
-\mathbf{I}_{ p \times p}\)</span> with <span class="math">\(\varepsilon \in (0, \min\{M_0, \rho\})\)</span>.  </p>
+\mathbf{I}_{ p \times p}\)</span> with <span class="math">\(\varepsilon \in (0, \min\{M_0, \rho\})\)</span>.  It
+follows that <span class="math">\(\mathcal{F_{11}} \subset \mathcal{F}(M, M_0)\)</span>.</p>
+<p>We now construct a second parameter space <span class="math">\(\mathcal{F}_{12} \subset
+\mathcal{F}\)</span> as follows:
+</p>
+<div class="math">$$
+\mathcal{F}_{12} = \left\{
+\Sigma_m: \Sigma_m \mathbf{I}_{p\times p} + \left(
+\sqrt{\frac{\tau}{n}}\mathbf{1}\{i = j = m\}\right)_{p \times p},
+0 \leq m \leq p_1
+\right\}
+$$</div>
+<p>
+where <span class="math">\(p_1 = \min\{p, e^\frac{n}{2}\}\)</span> and <span class="math">\(0 &lt; \tau &lt; \min\{(M_0 - 1)^2,
+(\rho - 1)^2, 1\}\)</span>.  Because the <span class="math">\(\Sigma_m\)</span> is this parameter are diagonal
+matrices, the bandability condition is satisfied trivially, and because the
+greatest diagonal entry is <span class="math">\(1 + \sqrt{\frac{\tau}{n}}\)</span>, the condition that
+the spectral norm be less than <span class="math">\(M_0\)</span> is easily verified.</p>
+<p>Denote <span class="math">\(\mathcal{F}_1 = \mathcal{F}_{11} \cup \mathcal{F}_{12}\)</span>.  Observe
+that <span class="math">\(\mathcal{F}_1 \subset \mathcal{F}_\alpha(M_0, M)\)</span></p>
+<p>We will now prove that:
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq cn^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<p>
+and
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{12}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq c\frac{\log p}{n}
+$$</div>
+<p>
+for some constant <span class="math">\(c &gt; 0\)</span>.  Taken together, we have:
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_1}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2
+\geq \frac{c}{2}\left(n^{-\frac{2\alpha}{2\alpha+1}} + \frac{\log p}{n}\right)
+$$</div>
+<p>
+which proves <strong>Theorem 3</strong>.</p>
+<h2>Lower Bound by Assouad's Lemma</h2>
+<p>Now that we have our machinery set up, we can move on the meat of our proof.
+The goal of this section is to establish:</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq cn^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<p>Suppose we are estimating an arbitrary quantity <span class="math">\(\psi(\theta)\)</span> within a
+metric space with metric <span class="math">\(d\)</span>, over a set of parameters <span class="math">\(\Theta = \{0, 1\}^k\)</span>.
+We denote the Hamming distance on <span class="math">\(\{0, 1\}^k\)</span> by <span class="math">\(H(\theta, \theta') = \sum_{i
+= 1}^k |\theta_i - \theta_i'|\)</span>.  We also define the total variation affinity
+between two probability measures <span class="math">\(P\)</span> and <span class="math">\(Q\)</span> with densities <span class="math">\(p, q\)</span> with respect
+to measure <span class="math">\(\mu\)</span> by <span class="math">\(\norm{P \wedge Q} = \int \min\{p, q\} d\mu\)</span>.  Under these
+assumptions, Assoud's Lemma gives the following lower bound on the maximum risk
+of estimating <span class="math">\(\psi(\theta)\)</span>:</p>
+<p><strong>Lemma (Assouad).</strong>  <em>Let <span class="math">\(\Theta = \{0, 1\}^k\)</span> and let <span class="math">\(T\)</span> be an estimator
+based on an observation from a distribution in the collection <span class="math">\(\{P_\theta,
+\theta \in \Theta\}\)</span>.  Then for all <span class="math">\(s &gt; 0\)</span>:</em>
+</p>
+<div class="math">$$
+\max_{\theta\in\Theta} 2^s \mathbf{E}_\theta d^s(T, \psi(\theta))
+\geq \min_{H(\theta, \theta') \geq 1}
+\frac{
+    d^s(\psi(\theta), \psi(\theta'))
+}{
+    H(\theta, \theta')
+}\cdot\frac{k}{2}\cdot
+\min_{H(\theta, \theta')}\norm{\mathbf{P}_\theta \wedge\mathbf{P}_{\theta'}}
+$$</div>
+<p>The authors give a natural interpretation of Assouad's Lemma in terms of
+multiple comparisons:</p>
+<ol>
+<li>The first factor is the minimum cost of making a mistake per comparison.</li>
+<li>The last factor is the lower bound for the total probability of making
+    type I and type II errors for each comparison.</li>
+<li><span class="math">\(\frac{k}{2}\)</span> is the expected number of mistakes made when
+    <span class="math">\(\mathbf{P}_\theta\)</span> and <span class="math">\(\mathbf{P}_{\theta'}\)</span> are indistinguishable
+    from each other when <span class="math">\(H(\theta, \theta') = 1\)</span> (?)</li>
+</ol>
+<p>Suppose we draw <span class="math">\(\mathbf{X}_1, \dotsc, \mathbf{X}_n \stackrel{\text{iid}}{\sim}
+\mathcal{N}(0, \Sigma(\theta))\)</span> with <span class="math">\(\Sigma(\theta) \in \mathcal{F}_{11}\)</span>.  We
+denote the joint distribution for these random vectors by <span class="math">\(\mathbf{P}_\theta\)</span>.
+The authors give two lemmas to complete the proof:</p>
+<p><strong>Lemma 5.</strong>  <em>Let <span class="math">\(\Sigma(\theta)\in\mathcal{F}_{11}\)</span>.  Then for some constant
+<span class="math">\(c &gt; 0\)</span>:</em>
+</p>
+<div class="math">$$
+    \min_{H(\theta, \theta') \geq 1}
+    \frac{
+    \norm{\Sigma(\theta) - \Sigma(\theta')}^2
+    }{
+    H(\theta, \theta')
+    } \geq cka^2
+$$</div>
+<p><strong>Lemma 6.</strong>  <em>Suppose we draw <span class="math">\(\mathbf{X}_1, \dotsc, \mathbf{X}_n
+\stackrel{\text{iid}}{\sim} \mathcal{N}(0, \Sigma(\theta))\)</span> with
+<span class="math">\(\Sigma(\theta) \in \mathcal{F}_{11}\)</span>.  Denote the joint distribution
+by <span class="math">\(\mathbf{P}_\theta\)</span>.  Then for some constant <span class="math">\(c &gt; 0\)</span>:</em>
+</p>
+<div class="math">$$
+    \min_{H(\theta, \theta') = 1}
+    \norm{\mathbf{P}_\theta \wedge \mathbf{P}_{\theta'}} &gt; c
+$$</div>
+<p>
+By Lemmata 5 and 6, and taking <span class="math">\(k = n^\frac{1}{2\alpha+1}\)</span>, we have the
+desired bound:
+</p>
+<div class="math">$$
+\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2
+\geq \frac{c^2}{2}k^2a^2
+\geq c_1n^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<p>
+for some <span class="math">\(c_1 &gt; 0\)</span>.  As the bound is for an arbitrary <span class="math">\(\hat\Sigma\)</span>, it
+follows that:
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq cn^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<h2>Lower Bound by Le Cam's Method</h2>
 <p>To be continued!</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
