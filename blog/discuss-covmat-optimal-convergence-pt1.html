@@ -213,20 +213,20 @@ at this point, we may split the norm by the triangle inequality:
 \Vert \breve\Sigma\Vert + \Vert\mathbf{E}\breve\Sigma\Vert
 $$</div>
 <p>
-and bound the operator norm by the Frobenius norm (needs to be shown):
+and bound the operator norm by the Frobenius norm:
 </p>
 <div class="math">$$
 \Vert \breve\Sigma\Vert + \Vert\mathbf{E}\breve\Sigma\Vert
-\leq \Vert\breve\Sigma\Vert + C
+\leq \Vert\breve\Sigma\Vert_F + C
 $$</div>
 <p>
 Finally, we may apply Cauchy-Schwarz:
 </p>
 <div class="math">\begin{align*}
 \mathbf{E}\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert^2
-&amp;\leq C_1 \left[x^2 + \mathbf{E}\left(\Vert\breve\Sigma\Vert + C\right)
+&amp;\leq C_1 \left[x^2 + \mathbf{E}\left(\Vert\breve\Sigma\Vert_F + C\right)
 I(N^{(m)} &gt; x)\right]   \\
-&amp;\leq C_1 \left[x^2 + \sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert +
+&amp;\leq C_1 \left[x^2 + \sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert_F +
 C\right)^4} \sqrt{\mathbf{P}(N^{(m)} &gt; x)}\right]
 \end{align*}</div>
 <p>We now bound the <span class="math">\(\sqrt{\mathbf{P}(N^{(m)} &gt; x)}\)</span> term.  By setting
@@ -238,18 +238,24 @@ C\right)^4} \sqrt{\mathbf{P}(N^{(m)} &gt; x)}\right]
 &amp;\leq \sqrt{2p5^m \exp\{-16\log p + -16m\}}  \\
 &amp;\leq \sqrt{2p5^m \cdot p^{-16}\exp\{-16m\}}  \\
 \end{align*}</div>
-<p>I will update this post with why we are able to bound:
+<p>We are able to bound the Frobenius norm:
 </p>
 <div class="math">$$
-\sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert + C\right)^4} \leq p^2
+\sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert_F + C\right)^4} \leq p^2
 $$</div>
-<p>With all these piecse together, we may conclude:
+<p>
+by observing that the squared Frobenius norm decouples the entries of the
+matrix, and we are able to bound each of the <span class="math">\(p^2\)</span> entries by a constant,
+which hides among the other constants.</p>
+<p>With all these pieces together, we may conclude:
 </p>
 <div class="math">\begin{align*}
 \mathbf{E}\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert^2
 &amp;\leq C\left[
-    \frac{\log p + m}{n} + p^2\cdot(p5^m)^\frac{1}{2}\cdot p^{-8}
-    \exp\{-8m\}
+    \frac{\log p + m}{n} + \underbrace{
+        p^2\cdot(p5^m)^\frac{1}{2}\cdot p^{-8}
+        \exp\{-8m\}
+    }_\text{Lower Order Term}
     \right] \\
 &amp;\leq C_1 \left(\frac{\log p + m}{n}\right)
 \end{align*}</div>
