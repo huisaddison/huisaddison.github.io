@@ -233,11 +233,12 @@ Let's focus on the expectation term and bound the maximum by the average.
     \sum_{j=1}^r
     \sum_{\theta: \theta_j \in\{0, 1\}}
     \frac{1}{2}
-    \left(
+    \Bigg(
     \int (1 - S_j) \min\{p_{\theta:\theta_j = 0},
-        p_{\theta: \theta_j = 1}\}\;d\mu   +
+        p_{\theta: \theta_j = 1}\}\;d\mu                    \\
+    &amp;\qquad\qquad\qquad\qquad\qquad+
     \int S_j \min\{p_{\theta:\theta_j = 0},
-        p_{\theta: \theta_j = 1}\}\;d\mu \right) \\
+        p_{\theta: \theta_j = 1}\}\;d\mu \Bigg) \\
 &amp;=     
     \frac{1}{2}
     \sum_{j=1}^r
@@ -370,6 +371,7 @@ Cam's Method can be found at the heart of such a useful tool.</p>
 	          <h2>Categories</h2>
 	          <ul>
 	              <li ><a href="http://huisaddison.com/blog/category/pelican.html">Pelican</a></li>
+	              <li ><a href="http://huisaddison.com/blog/category/photography.html">Photography</a></li>
 	              <li ><a href="http://huisaddison.com/blog/category/python.html">Python</a></li>
 	              <li class="active"><a href="http://huisaddison.com/blog/category/statistics.html">Statistics</a></li>
 	          </ul>
