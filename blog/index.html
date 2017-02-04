@@ -29,27 +29,600 @@
 
 
       <article>
-        <h1><a href="http://huisaddison.com/blog/photography-intro.html">Photography</a></h1>
-        <p>I recently picked up a new hobby: film photography.</p>
-<p>I've been shooting on Kodak Portra (400 speed) film with an old Rolleicord
-Twin Lens Reflex.  Aside from being fun, the activity has guided me through
-thinking about different factors that affect an image; e.g., latent light,
-depth of field, exposure times.  And the cost of each photograph has taught
-me to be more deliberate about what to attempt capturing.</p>
-<p>After having the film developed at a <a href="https://www.yelp.com/biz/advanced-photo-and-studio-monterey-park">mom and pop shop</a> down the
-street from my parents' house, I digitized the photographs with a Hasselblad
-film scanner graciously made available by the Yale <a href="http://dmca.yalecollege.yale.edu/">Digital Media Center
-for the Arts</a>.  The film scanner costs
-upwards of ten thousand dollars (!), according to B&amp;H Photo and Video.  I
-uploaded a subset of the scans (jpeg-compressed) to <a href="https://www.flickr.com/photos/huisaddison/">Flickr</a>.</p>
-<p>So far the results look pretty good.  This being my first time, I didn't handle
-the negatives very well, and there are more than a few artifacts on the
-scans.  For that, I apologize.</p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/huisaddison/31849662774/in/dateposted-public/" title="Portra400_01_03"><img src="https://c1.staticflickr.com/1/497/31849662774_bb7c810493_c.jpg" width="800" height="794" alt="Portra400_01_03"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/huisaddison/31849660614/in/dateposted-public/" title="Portra400_01_08"><img src="https://c1.staticflickr.com/1/474/31849660614_d16c6cdfe7_c.jpg" width="800" height="798" alt="Portra400_01_08"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/huisaddison/31849661604/in/dateposted-public/" title="Portra400_01_06"><img src="https://c1.staticflickr.com/1/369/31849661604_0b197724eb_c.jpg" width="800" height="798" alt="Portra400_01_06"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/huisaddison/32692596825/in/dateposted-public/" title="Portra400_01_01"><img src="https://c1.staticflickr.com/1/388/32692596825_0bda5cb3b7_c.jpg" width="800" height="796" alt="Portra400_01_01"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-<p>Later on, I'll try my hand at developing black and white film.</p>
+        <h1><a href="http://huisaddison.com/blog/discuss-covmat-optimal-convergence-pt2.html">Discussion: Optimal Rates of Convergence for Covariance Matrix Estimation, Part 2</a></h1>
+        <div class="math">$$
+    \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+$$</div>
+<p>In this post, I will continue my discussion of <a href="https://arxiv.org/abs/1010.3866">Optimal Rates of Convergence
+for Covariance Matrix Estimation</a>.  A
+discussion of their first result (showing an upper bound on the risk of their
+proposed tapering estimator) can be found in a <a href="http://huisaddison.com/blog/discuss-covmat-optimal-convergence-pt1.html">previous
+post</a>.</p>
+<h2>Minimax Lower Bound</h2>
+<p>We will review their proof of a minimax lower bound among all estimators that
+matches the upper bound previously proved for their tapering estimator.</p>
+<p><strong>Theorem 3.</strong>  <em>Suppose <span class="math">\(p \leq \exp(\gamma n)\)</span> for some constant
+<span class="math">\(\gamma &gt; 0\)</span>.  The minimax risk for estimating the covariance matrix
+<span class="math">\(\Sigma\)</span> over <span class="math">\(\mathcal{P}_\alpha\)</span> under the operator norm satisfies</em>:
+</p>
+<div class="math">\begin{align*}
+  \inf_{\hat\Sigma}\sup_{\mathcal{P}_\alpha}
+  \mathbf{E}\Vert\hat\Sigma - \Sigma\Vert^2
+  \geq
+  cn^{-\frac{2\alpha}{2\alpha + 1}} + c\frac{\log p}{n} 
+\end{align*}</div>
+<p>In the words of the authors,</p>
+<blockquote>
+<p><em>The basic strategy underlying the proof of Theorem 3 is to carefully
+  construct a finite collection of multivariate normal distributions and
+  calculate the total variation affinity between pairs of probability measures
+  in the collection.</em></p>
+</blockquote>
+<h2>Parameter Space Specification</h2>
+<p>Oftentimes, the proof of a minimax lower bound is accompanied with the
+specification of a smaller parameter space that is easier to analyze.
+Intuitively, the restriction of the parameters to a subspace is permissible as
+for <span class="math">\(\mathcal{F}'\subset \mathcal{F}\)</span>:
+</p>
+<div class="math">\begin{align*}
+    \sup_{\Sigma\in\mathcal{F}'} R(\Sigma, \hat\Sigma)
+    \leq
+    \sup_{\Sigma\in\mathcal{F}} R(\Sigma, \hat\Sigma)
+\end{align*}</div>
+<p>
+for all <span class="math">\(\hat\Sigma\)</span>.  It follows, then, that:
+</p>
+<div class="math">\begin{align*}
+    \inf_{\hat\Sigma}\sup_{\Sigma\in\mathcal{F}'} R(\Sigma, \hat\Sigma)
+    \leq
+    \inf_{\hat\Sigma}\sup_{\Sigma\in\mathcal{F}} R(\Sigma, \hat\Sigma)
+\end{align*}</div>
+<p>For positive integers <span class="math">\(k, m\)</span> such that <span class="math">\(2k \leq p\)</span> and <span class="math">\(1 \leq m \leq k\)</span>, we
+define the <span class="math">\(p \times p\)</span> matrix <span class="math">\(B(m, k) = (b_{ij})_{p\times{p}}\)</span> such that:
+</p>
+<div class="math">$$
+b_{ij} = \mathbf{1} \{i = m \text{ and } m+1 \leq j\leq 2k, \text{ or } 
+            j = m \text{ and } m+1 \leq i \leq 2k\}
+$$</div>
+<p>Setting <span class="math">\(k = n^\frac{1}{2\alpha + 1}\)</span> and <span class="math">\(a = k^{-\alpha-1}\)</span>, we then define
+a collection of <span class="math">\(2^k\)</span> covariance matrices:
+</p>
+<div class="math">$$
+\mathcal{F}_{11} = \left\{
+    \Sigma(\theta):
+    \Sigma(\theta) = \mathbf{I}_{p\times p}
+        + \tau a\sum_{m=1}^k \theta_m B(m, k),
+    \quad\theta = (\theta_m) \in \{0, 1\}^k
+\right\}
+$$</div>
+<p>
+where <span class="math">\(0 &lt; \tau &lt; 2^{-\alpha - 1}M\)</span>.  We can interpret this parameter 
+space intuitively.  First, we generate a set of <span class="math">\(k\)</span> matrices <span class="math">\(B(m, k)\)</span>,
+<span class="math">\(m \in [k]\)</span>, in which <span class="math">\(B(m, k)\)</span> is nonzero only on certain elements
+along row or column <span class="math">\(m\)</span>.  Then, for each <span class="math">\(\theta = \{0, 1\}^k\)</span>, we add
+a number of <span class="math">\(\tau a\)</span> perturbations to the identity matrix; where
+we add <span class="math">\(\tau a B(m, k)\)</span> if <span class="math">\(\theta_m \neq 0\)</span>.  This gives us a set
+of <span class="math">\(\Sigma(\theta)\)</span> of size <span class="math">\(2^k\)</span>.</p>
+<p>We now verify that <span class="math">\(\mathcal{F}_{11} \subset \mathcal{F}(M, M_0)\)</span>.  Recall
+the definition:
+</p>
+<div class="math">$$
+\mathcal{F}(M_0, M) = \left\{
+\Sigma: \max_j \sum_j \{|\sigma_{ij}|: |i-j| &gt; k\} \leq M k^{-\alpha}
+\text{ for all } k, \text{and} \lambda_{\text{max}}(\Sigma)\leq M_0
+\right\}
+$$</div>
+<p>
+Let us consider the <span class="math">\(\Sigma(\theta)\)</span> where <span class="math">\(\theta\)</span> is a vector of 
+<span class="math">\(k\)</span> ones and <span class="math">\(\tau = 2^{-\alpha - 1}M\)</span>.  Then
+</p>
+<div class="math">$$
+\Sigma(\theta) = \mathbf{I}_{p\times p}
+    + M (k + 2)^{-\alpha -1}\sum_{m=1}^k B(m, k)
+$$</div>
+<p>
+We observe that <span class="math">\(\sum_{m=1}^k B(m, k)\)</span> is a matrix of ones on the
+off-diagonals up to row and column <span class="math">\(2k \leq p\)</span>.  Therefore, the worst-case
+sum of entries more than <span class="math">\(k\)</span> away from the diagonal is:
+</p>
+<div class="math">\begin{align*}
+    \frac{k}{2} M k^{-\alpha - 1} 2^{- \alpha - 1}
+    &amp;=  M k^{-\alpha} 2^{- \alpha - 2}  \\
+    &amp;\leq M k^{-\alpha}
+\end{align*}</div>
+<p>
+Without loss of generality the authors assume <span class="math">\(M_0 &gt; 1\)</span> and <span class="math">\(\rho &gt; 1\)</span>; 
+otherwise we may replace <span class="math">\(\mathbf{I}_{p\times p}\)</span> with <span class="math">\(\varepsilon
+\mathbf{I}_{ p \times p}\)</span> with <span class="math">\(\varepsilon \in (0, \min\{M_0, \rho\})\)</span>.  It
+follows that <span class="math">\(\mathcal{F_{11}} \subset \mathcal{F}(M, M_0)\)</span>.</p>
+<p>We now construct a second parameter space <span class="math">\(\mathcal{F}_{12} \subset
+\mathcal{F}\)</span> as follows:
+</p>
+<div class="math">$$
+\mathcal{F}_{12} = \left\{
+\Sigma_m: \Sigma_m \mathbf{I}_{p\times p} + \left(
+\sqrt{\frac{\tau}{n}}\mathbf{1}\{i = j = m\}\right)_{p \times p},
+0 \leq m \leq p_1
+\right\}
+$$</div>
+<p>
+where <span class="math">\(p_1 = \min\{p, e^\frac{n}{2}\}\)</span> and <span class="math">\(0 &lt; \tau &lt; \min\{(M_0 - 1)^2,
+(\rho - 1)^2, 1\}\)</span>.  Because the <span class="math">\(\Sigma_m\)</span> is this parameter are diagonal
+matrices, the bandability condition is satisfied trivially, and because the
+greatest diagonal entry is <span class="math">\(1 + \sqrt{\frac{\tau}{n}}\)</span>, the condition that
+the spectral norm be less than <span class="math">\(M_0\)</span> is easily verified.</p>
+<p>Denote <span class="math">\(\mathcal{F}_1 = \mathcal{F}_{11} \cup \mathcal{F}_{12}\)</span>.  Observe
+that <span class="math">\(\mathcal{F}_1 \subset \mathcal{F}_\alpha(M_0, M)\)</span></p>
+<p>We will now prove that:
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq cn^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<p>
+and
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{12}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq c\frac{\log p}{n}
+$$</div>
+<p>
+for some constant <span class="math">\(c &gt; 0\)</span>.  Taken together, we have:
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_1}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2
+\geq \frac{c}{2}\left(n^{-\frac{2\alpha}{2\alpha+1}} + \frac{\log p}{n}\right)
+$$</div>
+<p>
+which proves <strong>Theorem 3</strong>.</p>
+<h2>Lower Bound by Assouad's Lemma</h2>
+<p>Now that we have our machinery set up, we can move on the meat of our proof.
+The goal of this section is to establish:</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq cn^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<p>Suppose we are estimating an arbitrary quantity <span class="math">\(\psi(\theta)\)</span> within a
+metric space with metric <span class="math">\(d\)</span>, over a set of parameters <span class="math">\(\Theta = \{0, 1\}^k\)</span>.
+We denote the Hamming distance on <span class="math">\(\{0, 1\}^k\)</span> by <span class="math">\(H(\theta, \theta') = \sum_{i
+= 1}^k |\theta_i - \theta_i'|\)</span>.  We also define the total variation affinity
+between two probability measures <span class="math">\(P\)</span> and <span class="math">\(Q\)</span> with densities <span class="math">\(p, q\)</span> with respect
+to measure <span class="math">\(\mu\)</span> by <span class="math">\(\norm{P \wedge Q} = \int \min\{p, q\} d\mu\)</span>.  Under these
+assumptions, Assoud's Lemma gives the following lower bound on the maximum risk
+of estimating <span class="math">\(\psi(\theta)\)</span>:</p>
+<p><strong>Lemma (Assouad).</strong>  <em>Let <span class="math">\(\Theta = \{0, 1\}^k\)</span> and let <span class="math">\(T\)</span> be an estimator
+based on an observation from a distribution in the collection <span class="math">\(\{P_\theta,
+\theta \in \Theta\}\)</span>.  Then for all <span class="math">\(s &gt; 0\)</span>:</em>
+</p>
+<div class="math">$$
+\max_{\theta\in\Theta} 2^s \mathbf{E}_\theta d^s(T, \psi(\theta))
+\geq \min_{H(\theta, \theta') \geq 1}
+\frac{
+    d^s(\psi(\theta), \psi(\theta'))
+}{
+    H(\theta, \theta')
+}\cdot\frac{k}{2}\cdot
+\min_{H(\theta, \theta')}\norm{\mathbf{P}_\theta \wedge\mathbf{P}_{\theta'}}
+$$</div>
+<p>The authors give a natural interpretation of Assouad's Lemma in terms of
+multiple comparisons:</p>
+<ol>
+<li>The first factor is the minimum cost of making a mistake per comparison;
+    that is, it is a lower bound on the distance between the distance between
+    two parameters in the parameter space.</li>
+<li>The last factor (total variation affinity) measures the overlap between
+    the two probability measures indexed by <span class="math">\(\theta\)</span> and <span class="math">\(\theta'\)</span>;
+    intuitively, it gives a lower bound on the total probability of making
+    type I and type II errors for each comparison.</li>
+<li><span class="math">\(\frac{k}{2}\)</span> is the expected number of mistakes made when
+    <span class="math">\(\mathbf{P}_\theta\)</span> and <span class="math">\(\mathbf{P}_{\theta'}\)</span> are indistinguishable
+    from each other when <span class="math">\(H(\theta, \theta') = 1\)</span>.</li>
+</ol>
+<p>Assouad's Lemma can be unpacked as an extension of Le Cam's Method.  A
+companion blog post discussing Assouad's Lemma with guidance from <a href="https://www.stat.berkeley.edu/~binyu/ps/LeCam.pdf">Yu's
+<em>Assoud, Fano, and Le Cam</em></a>
+and <a href="https://books.google.com/books/about/Asymptotic_Statistics.html?id=UEuQEM5RjWgC">van der Vaart's <em>Asymptotic Statistics</em></a> can be found <a href="http://huisaddison.com/blog/assouads-lemma.html">here</a>.</p>
+<p>Suppose we draw <span class="math">\(\mathbf{X}_1, \dotsc, \mathbf{X}_n \stackrel{\text{iid}}{\sim}
+\mathcal{N}(0, \Sigma(\theta))\)</span> with <span class="math">\(\Sigma(\theta) \in \mathcal{F}_{11}\)</span>.  We
+denote the joint distribution for these random vectors by <span class="math">\(\mathbf{P}_\theta\)</span>.
+The authors give two lemmas to complete the proof:</p>
+<p><strong>Lemma 5.</strong>  <em>Let <span class="math">\(\Sigma(\theta)\in\mathcal{F}_{11}\)</span>.  Then for some constant
+<span class="math">\(c &gt; 0\)</span>:</em>
+</p>
+<div class="math">$$
+    \min_{H(\theta, \theta') \geq 1}
+    \frac{
+    \norm{\Sigma(\theta) - \Sigma(\theta')}^2
+    }{
+    H(\theta, \theta')
+    } \geq cka^2
+$$</div>
+<p><strong>Lemma 6.</strong>  <em>Suppose we draw <span class="math">\(\mathbf{X}_1, \dotsc, \mathbf{X}_n
+\stackrel{\text{iid}}{\sim} \mathcal{N}(0, \Sigma(\theta))\)</span> with
+<span class="math">\(\Sigma(\theta) \in \mathcal{F}_{11}\)</span>.  Denote the joint distribution
+by <span class="math">\(\mathbf{P}_\theta\)</span>.  Then for some constant <span class="math">\(c &gt; 0\)</span>:</em>
+</p>
+<div class="math">$$
+    \min_{H(\theta, \theta') = 1}
+    \norm{\mathbf{P}_\theta \wedge \mathbf{P}_{\theta'}} &gt; c
+$$</div>
+<p>
+By Lemmata 5 and 6, and taking <span class="math">\(k = n^\frac{1}{2\alpha+1}\)</span>, we have the
+desired bound:
+</p>
+<div class="math">$$
+\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2
+\geq \frac{c^2}{2}k^2a^2
+\geq c_1n^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<p>
+for some <span class="math">\(c_1 &gt; 0\)</span>.  As the bound is for an arbitrary <span class="math">\(\hat\Sigma\)</span>, it
+follows that:
+</p>
+<div class="math">$$
+\inf_{\hat\Sigma}\sup_{\mathcal{F}_{11}}
+\mathbf{E} \norm{\hat\Sigma - \Sigma}^2 \geq cn^{-\frac{2\alpha}{2\alpha+1}}
+$$</div>
+<h2>Lower Bound by Le Cam's Method</h2>
+<p>We now establish a lower bound on the second subparameter space
+<span class="math">\(\mathcal{F}_{12}\)</span>.</p>
+<p>We first begin with a statement of Le Cam's method.  Suppose <span class="math">\(X\)</span>
+is drawn from a distribution belonging to the collection <span class="math">\(\{
+P_\theta: \theta \in \Theta\}\)</span> where <span class="math">\(\Theta = \{\theta_0, \dotsc,
+\theta_{p_1}\)</span>.  We further define <span class="math">\(r(\theta_0, \theta_m) = \inf_t
+[L(t, \theta_0) + L(t, \theta_m)]\)</span>, and <span class="math">\(r_\mathrm{min}(\theta_0,
+\theta_m)\)</span>.  Finally, we denote <span class="math">\(\mathbf{\bar P} = \frac{1}{p_1}
+\sum_{m=1}^{p_1}\mathbf{P}_{\theta_m}\)</span>.</p>
+<p><strong>Lemma 7.</strong> <em>Let <span class="math">\(T\)</span> be an estimator of <span class="math">\(\theta\)</span> based on an
+observation from a distribution in the collection <span class="math">\(\{\mathbf{P}_\theta:
+\theta \in \Theta\}\)</span>, then</em>
+</p>
+<div class="math">$$
+\sup_\theta \mathbf{E} L(T, \theta) \geq
+    \frac{1}{2}r_\mathrm{min}\norm{\mathbf{P}_{\theta_0}\wedge 
+    \mathbf{\bar P}}
+$$</div>
+<p>Justification for this lemma will be addressed in an upcoming blog post
+focusing exclusively on Le Cam's two-point method, with guidance from
+Bin Yu's excellent Chapter 23 in <a href="https://books.google.com/books?id=JsAofN8GBVgC&amp;source=gbs_ViewAPI"><em>Festschrift for Le Cam</em></a>.</p>
+<p>To apply Le Cam's method, the authors construct a parameter set as follows:
+for <span class="math">\(1 \leq m \leq p_1\)</span>, let <span class="math">\(\Sigma_m\)</span> be a diagonal covariance matrix with
+<span class="math">\(\sigma_{mm} = 1 + \sqrt{\tau\frac{\log p_1}{n}}\)</span>, <span class="math">\(\sigma_{ii} = 1\)</span> for
+<span class="math">\(i \neq m\)</span>, and let <span class="math">\(\Sigma_0\)</span> be the identity matrix.</p>
+<p>Suppose for each <span class="math">\(m\)</span> we draw <span class="math">\(X_1, \dotsc, X_n \stackrel{\mathrm{iid}}{\sim}
+\mathcal{N}(0, \Sigma_m)\)</span>.  Then the joint density <span class="math">\(f_m\)</span> of <span class="math">\(X_1, \dotsc,
+X_n\)</span> is given by:
+</p>
+<div class="math">$$
+f_m =
+    \prod_{1\leq i\leq n, 1\leq j\leq p, j \neq m}
+        \phi_1(x_j^i)
+    \prod_{1 \leq i \leq n}
+        \phi_{\sigma_{mm}}(x_m^i)
+$$</div>
+<p>
+where <span class="math">\(\phi_\sigma\)</span> is the normal density with mean zero and variance <span class="math">\(\sigma\)</span>.
+We can see that the statement of the joint density follows naturally from the
+fact that each random vector is drawn independently from a normal density with
+diagonal covariance matrix (no correlation implies independence in the Gaussian
+case).</p>
+<p>First, we establish the bound on <span class="math">\(\norm{\mathbf{P}_{\theta_0} \wedge
+\mathbf{\bar P}}\)</span>.  Note that for two arbitrary densities <span class="math">\(q_0, q_1\)</span>, we may
+rewrite the total variation affinity as one minus the total variation distance:
+</p>
+<div class="math">$$
+\int q_0 \wedge q_1 d\mu =  1 - \frac{1}{2}\int |q_0-q_1|d\mu
+$$</div>
+<p>
+Then, we may apply Jensen's inequality on the latter term squared:
+</p>
+<div class="math">\begin{align}
+\left[\int|q_0 - q_1|d\mu\right]^2
+    &amp;\leq   \int (q_0 - q_1)^2 d\mu         \\
+    &amp;\stackrel{?}{\leq} \int \frac{(q_0-q_1)^2}{q_1}d\mu        \\
+    &amp;= \int \frac{q_0^2-2q_0q_1+q_1^2}{q_1}d\mu        \\
+    &amp;= \int \frac{q_0^2}{q_1} - 2q_0 + q_1d\mu        \\
+    &amp;= \int \frac{q_0^2}{q_1}d\mu - 1   
+\end{align}</div>
+<p>
+I will update this post when I figure out why the upper bound in line (2)
+holds.  Therefore, to establish a bound on the total variation affinity:
+</p>
+<div class="math">$$
+\norm{\mathbf{P}_{\theta_0} \wedge \mathbf{\bar P}}
+\leq  1 - \frac{1}{2}\left(\int \frac{(\frac{1}{p_1}\sum f_m)^2}{f_0}d\mu - 1
+\right)^\frac{1}{2}\leq c
+$$</div>
+<p>
+we need only show that <span class="math">\(\int \frac{(\frac{1}{p_1}\sum f_m)^2}
+{f_0}d\mu - 1\rightarrow 0\)</span>.  Let's open up this term and see what we find.</p>
+<div class="math">\begin{align*}
+\int \frac{(\frac{1}{p_1}\sum f_m)^2} {f_0}d\mu - 1
+    &amp;=  \int \frac{(\frac{1}{p_1}\sum f_m)^2} {f_0}d\mu - 1 \\
+    &amp;=  \frac{1}{p_1^2} \int \frac{
+            \sum_{m=1}^{p_1} f_m^2 + \sum_{m\neq j} f_m f_j
+        } {f_0}d\mu - 1
+\end{align*}</div>
+<p>Let's focus on the cross terms first.  We can directly evaluate, for all
+<span class="math">\(j, m\)</span>:
+</p>
+<div class="math">\begin{align*}
+\int \frac{f_jf_m}{f_0} d\mu
+&amp;=  \int
+    \frac{
+        \prod_{1\leq i \leq n\\1 \leq k \leq p_1\\k\neq j}
+        \phi_1(x_k^i)
+        \prod_{1\leq i \leq n\\1 \leq k \leq p_1\\k\neq m}
+        \phi_1(x_k^i)
+        \prod_{1 \leq i \leq n}
+        \phi(x_m^i)\phi(x_j^i)
+    }{
+        \prod_{1 \leq i \leq n\\1\leq k \leq p_1} \phi_1(x_k^i)
+    }d\left\{x_k^i\right\}_{1 \leq i \leq n\\1\leq k \leq p_1}\\    
+&amp;\text{(Independence.)} \\
+&amp;=  \prod_{1\leq i \leq n}\int
+    \frac{
+        \left[\prod_{1 \leq k \leq p_1\\k\neq j}
+        \phi_1(x_k^i)\right]
+        \left[\prod_{1 \leq k \leq p_1\\k\neq m}
+        \phi_1(x_k^i)\right]
+        \phi(x_m^i)\phi(x_j^i)
+    }{
+        \prod_{1\leq k \leq p_1} \phi_1(x_k^i)
+    }d\left\{x_k^i\right\}_{1\leq k \leq p_1}   \\
+&amp;=  \prod_{1\leq i\neq n}\int
+    \left[\prod_{1 \leq k \leq p_1\\k \not\in\{j, m\}}
+    \phi_1(x_k^i)\right]
+    \phi(x_m^i)\phi(x_j^i)
+    d\left\{x_k^i\right\}_{1\leq k \leq p_1}    \\
+&amp;\text{(Independence.)} \\
+&amp;=  \prod_{1\leq i\neq n}
+    \left[
+    \left[
+    \prod_{1 \leq k \leq p_1\\k \not\in\{j, m\}}
+    \int
+    \phi_1(x_k^i)d x_k^i
+    \right]
+    \int\phi(x_m^i)d x_m^i
+    \int\phi(x_j^i)d x_j^i
+    \right] \\
+&amp;=  \prod_{1\leq i\neq n}
+    1   \\
+&amp;=  1
+\end{align*}</div>
+<p>Now, we'll look at the squared terms.  We have:
+</p>
+<div class="math">\begin{align*}
+\int \frac{f_m^2}{f_0} d\mu
+&amp;=  \int
+    \frac{
+        \prod_{1\leq i \leq n\\1 \leq j \leq p_1\\j\neq m}
+        \phi_1(x_j^i)^2
+        \prod_{1 \leq i \leq n}
+        \phi(x_m^i)^2
+    }{
+        \prod_{1 \leq i \leq n\\1\leq j \leq p_1} \phi_1(x_j^i)
+    }d\left\{x_j^i\right\}_{1 \leq i \leq n\\1\leq j \leq p_1}\\    
+&amp;\text{(Independence.)} \\
+&amp;=  \prod_{1\leq i \leq n}\int
+    \frac{
+        \left[\prod_{1 \leq j \leq p_1\\j\neq m}
+        \phi_1(x_j^i)^2\right]
+        \phi(x_m^i)^2
+    }{
+        \prod_{1\leq j \leq p_1} \phi_1(x_j^i)
+    }d\left\{x_j^i\right\}_{1\leq j \leq p_1}   \\
+&amp;=  \prod_{1\leq i \leq n}\int
+    \frac{
+        \left[\prod_{1 \leq j \leq p_1\\j\neq m}
+        \phi_1(x_j^i)\right]
+        \phi(x_m^i)^2
+    }{
+        \phi_1(x_m^i)
+    }d\left\{x_j^i\right\}_{1\leq j \leq p_1}   \\
+&amp;=  \prod_{1\leq i \leq n}
+    \left[
+    \prod_{1 \leq j \leq p_1\\j\neq m}
+    \int
+    \phi_1(x_j^i)dx_j^i
+    \right]
+    \int
+    \frac{
+        \phi(x_m^i)^2
+    }{
+        \phi_1(x_m^i)
+    }dx_m^i   \\
+&amp;=  \prod_{1\leq i \leq n}
+    \int
+    \frac{
+        \phi_{\sigma_{mm}}(x_m^i)^2
+    }{
+        \phi_1(x_m^i)
+    }dx_m^i   \\
+\end{align*}</div>
+<p>
+We now substitute in the form of the density functions and move the
+normalization terms out of the integral:
+</p>
+<div class="math">\begin{align*}
+\prod_{1\leq i \leq n}
+    \int
+    \frac{
+        \phi_{\sigma_{mm}}(x_m^i)^2
+    }{
+        \phi_1(x_m^i)
+    }dx_m^i 
+&amp;=  \frac{
+        (\sqrt{2\pi\sigma_{mm}})^{-2n}
+    }{
+        (\sqrt{2\pi})^{-n}
+    }
+    \prod_{1\leq i \leq n}
+    \int
+    \exp\left\{-2\cdot\frac{(x_m^i)^2}{2\sigma_{mm}}\right\}
+    \exp\left\{\frac{(x_m^i)^2}{2}\right\}\\
+&amp;=  \frac{
+        (\sqrt{2\pi\sigma_{mm}})^{-2n}
+    }{
+        (\sqrt{2\pi})^{-n}
+    }
+    \prod_{1\leq i \leq n}
+    \int
+    \exp\left\{
+    -\frac{1}{2}\left[
+    \frac{(x_m^i)^2}{\frac{\sigma_{mm}}{2 - \sigma_{mm}}}
+    \right]
+    \right\}    \\
+&amp;=  \frac{
+        (\sqrt{2\pi\sigma_{mm}})^{-2n}
+    }{
+        (\sqrt{2\pi})^{-n}
+    }
+    \left(
+    \frac{2\pi\sigma_{mm}}{2 - \sigma_{mm}}
+    \right)^\frac{n}{2} \\
+&amp;=  (\sqrt{\sigma_{mm}})^{-2n}
+    \left(
+    \frac{\sigma_{mm}}{2 - \sigma_{mm}}
+    \right)^\frac{n}{2} \\
+&amp;=  (\sqrt{\sigma_{mm}})^{-n}(\sqrt{2 - \sigma_{mm}})^{-n}  \\
+&amp;=  \left[
+    2\sigma_{mm} - \sigma_{mm}^2
+    \right]^{-\frac{n}{2}}  \\
+&amp;=  \left[
+    1 - (1 - \sigma_{mm})^2
+    \right]^{-\frac{n}{2}}  \\
+&amp;=  \left( 1 - \tau\frac{\log p_1}{n}\right)^{-\frac{n}{2}}
+\end{align*}</div>
+<p>
+Let us take <span class="math">\(0 &lt; \tau &lt; 1\)</span>.  Then we have:
+</p>
+<div class="math">\begin{align*}
+\frac{1}{p_1^2}\sum_{m=1}^{p_1}
+\left(\frac{f_m^2}{f_0}d\mu - 1\right)
+    &amp;\leq \frac{1}{p_1}\left(1 -
+        \tau\frac{\log p_1}{n}\right)^{-\frac{n}{2}}
+    -   \frac{1}{p_1}   \\
+    &amp;=  \exp\left\{-\log p_1 - \frac{n}{2}\log\left(
+            1 - \tau\frac{\log p_1}{n}\right)\right\}
+        -\frac{1}{p_1}  \\
+    &amp;\rightarrow 0
+\end{align*}</div>
+<p>
+where we exploit the fact that <span class="math">\(\log(1-x)\geq -2x\)</span> for <span class="math">\(0 &lt; x &lt;
+\frac{1}{2}\)</span>.  Combined with the previously proved fact that:
+</p>
+<div class="math">$$
+    \int \frac{f_mf_j}{f_0}d\mu -1 = 0
+$$</div>
+<p>
+We can conclude that:
+</p>
+<div class="math">$$
+\frac{1}{p_1^2}\sum_{m=1}^{p_1}\int \frac{f_m^2}{f_0} d\mu
+    +
+\frac{1}{p_1^2}\sum_{m \neq j}\int \frac{f_mf_j}{f_0} d\mu
+\rightarrow 0
+$$</div>
+<p>
+allowing us to bound:
+</p>
+<div class="math">$$
+\norm{\mathbf{P}_{\theta_0} - \mathbf{\bar P}} \geq c
+$$</div>
+<p>Finally, we give a bound on <span class="math">\(r_\mathrm{min}\)</span>.  Let <span class="math">\(\theta_m = \Sigma_m\)</span> for
+<span class="math">\(0 \leq m \leq p_1\)</span>, and let the loss function <span class="math">\(L\)</span> be the squared operator
+norm.  Then we see that:
+</p>
+<div class="math">\begin{align*}
+r(\theta_0, \theta_m)
+    &amp;=  r(\Sigma_0, \Sigma_m)       \\
+    &amp;=  \inf_t \left[L(t, \Sigma_0) + L(t, \Sigma_m)\right]
+\end{align*}</div>
+<p>
+Observe that the operator norm in <span class="math">\(\ell_2\)</span> distance on a diagonal matrix is
+simply the largest element.  Then, we may minimize the above quantity with
+<span class="math">\(t_{ii} = 1 + \frac{1}{2}\sqrt{\tau\frac{\log p_1}{n}}\mathbf{1}\{i = m\}\)</span>.  This
+gives us:
+</p>
+<div class="math">\begin{align*}
+r(\theta_0, \theta_m)
+    &amp;=  2\cdot \frac{1}{4}\tau\frac{\log p_1}{n}    \\
+    &amp;=  \frac{1}{2}\tau\frac{\log p_1}{n}   
+\end{align*}</div>
+<p>
+for <span class="math">\(1 \leq m \leq p_1\)</span>, implying that <span class="math">\(r_\mathrm{min} =
+\frac{1}{2}\tau\frac{\log p_1}{n}\)</span>.  Substituting this result back into
+the lower bound given by Le Cam's Method, we have:
+</p>
+<div class="math">\begin{align*}
+\sup_\theta \mathbf{E} L(T, \theta)
+    &amp;\geq \frac{1}{2}r_\mathrm{min} \norm{\mathbf{P}_{\theta_0}
+    \wedge \mathbf{\bar P}} \\
+    &amp;=  \frac{c}{4}\tau\frac{\log p_1}{n}       \\
+    &amp;\leq  c\frac{\log p_1}{n}   
+\end{align*}</div>
+<p>
+where <span class="math">\(p_1 = \max\{p, \exp\{\frac{n}{2}\}\}\)</span>.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
       </article>
 
       <hr />
@@ -61,15 +634,15 @@ scans.  For that, I apologize.</p>
 
 
       <li>
-<a href="http://huisaddison.com/blog/assouads-lemma.html" rel="bookmark" title="Permalink to Assouad's Lemma">Assouad's Lemma</a>
-  <time datetime="2017-02-01T00:00:00-05:00" pubdate>Wed 01 February 2017</time>
-<p class="tags">tags: <a href="http://huisaddison.com/blog/tag/math.html">math</a>, <a href="http://huisaddison.com/blog/tag/stats.html">stats</a>, <a href="http://huisaddison.com/blog/tag/minimax.html">minimax</a>, <a href="http://huisaddison.com/blog/tag/risk.html">risk</a>, <a href="http://huisaddison.com/blog/tag/assouad.html">assouad</a></p></a>      </li>
+<a href="http://huisaddison.com/blog/photography-intro.html" rel="bookmark" title="Permalink to Photography">Photography</a>
+  <time datetime="2017-02-03T00:00:00-05:00" pubdate>Fri 03 February 2017</time>
+<p class="tags">tags: <a href="http://huisaddison.com/blog/tag/photography.html">photography</a>, <a href="http://huisaddison.com/blog/tag/film.html">film</a>, <a href="http://huisaddison.com/blog/tag/analog.html">analog</a>, <a href="http://huisaddison.com/blog/tag/tlr.html">tlr</a>, <a href="http://huisaddison.com/blog/tag/rolleicord.html">rolleicord</a></p></a>      </li>
 
 
       <li>
-<a href="http://huisaddison.com/blog/discuss-covmat-optimal-convergence-pt2.html" rel="bookmark" title="Permalink to Discussion: Optimal Rates of Convergence for Covariance Matrix Estimation, Part 2">Discussion: Optimal Rates of Convergence for Covariance Matrix Estimation, Part 2</a>
-  <time datetime="2017-01-30T00:00:00-05:00" pubdate>Mon 30 January 2017</time>
-<p class="tags">tags: <a href="http://huisaddison.com/blog/tag/math.html">math</a>, <a href="http://huisaddison.com/blog/tag/stats.html">stats</a>, <a href="http://huisaddison.com/blog/tag/covariance.html">covariance</a>, <a href="http://huisaddison.com/blog/tag/minimax.html">minimax</a>, <a href="http://huisaddison.com/blog/tag/risk.html">risk</a></p></a>      </li>
+<a href="http://huisaddison.com/blog/assouads-lemma.html" rel="bookmark" title="Permalink to Assouad's Lemma">Assouad's Lemma</a>
+  <time datetime="2017-02-01T00:00:00-05:00" pubdate>Wed 01 February 2017</time>
+<p class="tags">tags: <a href="http://huisaddison.com/blog/tag/math.html">math</a>, <a href="http://huisaddison.com/blog/tag/stats.html">stats</a>, <a href="http://huisaddison.com/blog/tag/minimax.html">minimax</a>, <a href="http://huisaddison.com/blog/tag/risk.html">risk</a>, <a href="http://huisaddison.com/blog/tag/assouad.html">assouad</a></p></a>      </li>
 
 
       <li>
