@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="">	
+<head>
+	<meta charset="utf-8"/>
+	<title>Le Cam's Method - huisaddison/blog</title>	
+	<meta name="author" content="Addison">
+	
+
+	<meta name="description" content="A brief discussion of Le Cam's two-point argument for minimax lower bounds.">
+
+
+	<link rel="top" href="#" /><link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Source+Code+Pro' rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="http://huisaddison.com/blog/theme/css/main.css" type="text/css" />
+		
+
+</head>
+	
+<body>
+
+    <div class="container">
+	  
+	  <header role="banner">
+	    <div class="feeds">
+	    </div>
+		<a href="http://huisaddison.com/blog" class="title">huisaddison/blog</a>
+      </header>
+	
+	  <div class="wrapper">
+
+		  <div role="main" class="content">
+	<article class="full">
+			
+		<h1>Le Cam's Method</h1>
+		
+<div class="metadata">
+  <time datetime="2017-02-05T00:00:00-05:00" pubdate>Sun 05 February 2017</time>
+    <address class="vcard author">
+      by <a class="url fn" href="http://huisaddison.com/blog/author/addison.html">Addison</a>
+    </address>
+  in <a href="http://huisaddison.com/blog/category/statistics.html">Statistics</a>
+<p class="tags">tagged <a href="http://huisaddison.com/blog/tag/math.html">math</a>, <a href="http://huisaddison.com/blog/tag/stats.html">stats</a>, <a href="http://huisaddison.com/blog/tag/minimax.html">minimax</a>, <a href="http://huisaddison.com/blog/tag/risk.html">risk</a>, <a href="http://huisaddison.com/blog/tag/le-cam.html">le-cam</a></p></div>		
+		<div class="math">$$
+    \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+    \newcommand{\EE}{\mathbf{E}}
+    \newcommand{\Pp}{\mathcal{P}}
+    \newcommand{\Dd}{\mathcal{D}}
+$$</div>
+<p>Le Cam's two-point method is a fundamental tool in the establishment of minimax
+lower bounds.  After identifying suitable subsets of the parameter space, the
+key to the argument is a lower bound of the maximum by an average.  Le Cam's
+method can be found at the heart of other minimax lower bound arguments, such
+as <a href="http://huisaddison.com/blog/assouads-lemma.html">Assouad's Lemma</a>.  For this discussion, we
+will follow the exposition from Bin Yu's Chapter 29 of <a href="http://link.springer.com/book/10.1007%2F978-1-4612-1880-7">Festschrift for
+Le Cam</a>.</p>
+<h2>Statement</h2>
+<p>Suppose <span class="math">\(\Pp\)</span> is a family of probability measures, with each probability
+measure <span class="math">\(P\)</span> parameterized by a <span class="math">\(\theta(P)\)</span> which lives in a pseudo-metric
+space <span class="math">\((\Dd, d)\)</span>.  </p>
+<p><strong>Remark.</strong>  Yu notes that we use pseudo-metric spaces as requiring <span class="math">\(d(\theta,
+\theta') \Leftrightarrow \theta = \theta'\)</span> would be troublesome.</p>
+<p>We define <span class="math">\(\hat\theta = \hat\theta(X)\)</span> to be the estimator of <span class="math">\(\theta(P)\)</span>
+based on <span class="math">\(X\)</span> drawn from a distribution <span class="math">\(P\)</span>.  Finally, we denote the convex
+hull of <span class="math">\(\Pp\)</span> by <span class="math">\(co(\Pp)\)</span>.</p>
+<p><strong>Lemma.</strong> <em>Let <span class="math">\(\hat\theta\)</span> be an estimator of <span class="math">\(\theta(P)\)</span> on <span class="math">\(\Pp\)</span> taking
+values in a metric space <span class="math">\((\Dd, d)\)</span>.  Suppose that there are subsets <span class="math">\(\Dd_1\)</span>
+and <span class="math">\(\Dd_2\)</span> of <span class="math">\(\Dd\)</span> that are <span class="math">\(2\delta\)</span>-separated; that is, <span class="math">\(d(s_1, s_2)
+\geq 2\delta\)</span> for all <span class="math">\(s_1\in \Dd_1, s_2\in\Dd_2\)</span>.  Suppose further that
+<span class="math">\(\Pp_1, \Pp_2\)</span> are subsets of <span class="math">\(\Pp\)</span>, such that <span class="math">\(\theta(P)\in\Dd_1\)</span> for
+<span class="math">\(P \in \Pp_1\)</span>&lt; and <span class="math">\(\theta(P)\in\Dd_2\)</span> for <span class="math">\(P\in\Pp_2\)</span>.  Then
+<div class="math">$$
+\sup_{P\in\Pp}\EE_Pd(\hat\theta, \theta(P)) \geq
+    \delta \cdot \sup_{P_1\in co(\Pp_1),\\ P_2\in co(\Pp_2)}
+    \norm{P_1\wedge P_2}
+$$</div>
+where <span class="math">\(\norm{P_1\wedge P_2}\)</span> is the total variation affinity.</em></p>
+<p><em>Proof.</em>  We begin by observing that we may bound the supremem from below
+by an average over an arbitrary pair of <span class="math">\(P_1 \in \Pp_1\)</span> and <span class="math">\(P_2 \in \Pp_2\)</span>:
+</p>
+<div class="math">\begin{align*}
+\sup_{P\in\Pp}\EE_Pd(\hat\theta, \theta(P))
+    &amp;\geq\frac{1}{2}\left[
+    \EE_{P_1} d(\hat\theta, \theta(P_1))
+    +
+    \EE_{P_2} d(\hat\theta, \theta(P_2))
+    \right]
+\end{align*}</div>
+<p>
+We are there able to lower bound the distances to <span class="math">\(\theta(P_1) \in \Dd_1\)</span> and
+<span class="math">\(\theta(P_2) \in \Dd_2\)</span> by the distances to arbitrary members of <span class="math">\(\Dd_1\)</span> and
+<span class="math">\(\Dd_2\)</span> -- say, the elements in each subset closest to <span class="math">\(\hat\theta\)</span>.
+</p>
+<div class="math">\begin{align*}
+    \frac{1}{2}\left[
+    \EE_{P_1} d(\hat\theta, \theta(P_1))
+    +
+    \EE_{P_2} d(\hat\theta, \theta(P_2))
+    \right]
+    &amp;\geq
+    \frac{1}{2}\left[
+    \EE_{P_1} d(\hat\theta, \Dd_1)
+    +
+    \EE_{P_2} d(\hat\theta, \Dd_2)
+    \right]
+\end{align*}</div>
+<p>
+At this point, we may note that each expectation is an integration with respect
+to a probability measure.  Therefore, we may interpret each one as a weighted
+sum, and lower bound the sum of the two by integrating with respect to the
+pointwise minimum of the two measures.
+</p>
+<div class="math">\begin{align*}
+    \frac{1}{2}\left[
+    \EE_{P_1} d(\hat\theta, \Dd_1)
+    +
+    \EE_{P_2} d(\hat\theta, \Dd_2)
+    \right]
+    &amp;\geq
+    \frac{1}{2}\left[
+    \int \left(d(\hat\theta, \Dd_1) + d(\hat\theta, \Dd_2)\right)
+        \min\{p_1, p_2\}d\mu
+    \right]
+\end{align*}</div>
+<p>
+Applying the triangle inequality completes the proof:
+</p>
+<div class="math">\begin{align*}
+    \frac{1}{2}\left[
+    \int \left(d(\hat\theta, \Dd_1) + d(\hat\theta, \Dd_2)\right)
+        \min\{p_1, p_2\}d\mu
+    \right]
+    &amp;\geq
+    \frac{1}{2}\left[
+    \int 
+    d(\Dd_1, \Dd_2)
+        \min\{p_1, p_2\}d\mu    
+    \right] \\
+    &amp;\geq
+    \frac{1}{2}\left[
+    \int 
+    2\delta
+        \min\{p_1, p_2\}d\mu
+    \right] \\
+    &amp;=
+    \delta
+    \int 
+        \min\{p_1, p_2\}d\mu    \\
+    &amp;=  \delta \norm{P \wedge Q}
+\end{align*}</div>
+<h2>Discussion</h2>
+<p>Le Cam's method gives a simple, intuitive way to give a lower bound on the
+maximum risk associated with estimating a parameter by considering two
+subsets of the parameter space with a suitable degree of separation.  The
+true challenge is identifying these subsets of the parameter space in a way
+that gives a useful bound.</p>
+<p>Better rates may be achieved by using Assouad's Lemma, which applies Le Cam's
+method in a multiple comparisons setting.  Bin Yu also remarks that "Le Cam's
+method often gives the optimal rate when a real function is estimated...
+[whereas Assouad and Fano] seem to be effective when the whole unknown function
+is being estimated.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>	
+
+	</article>
+
+    <p>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="" data-lang="en" data-size="large" data-related="">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</p>
+
+
+		  </div>	
+		  
+		  <div class="sidebar">
+
+	        <nav>
+	          <h2>Categories</h2>
+	          <ul>
+	              <li ><a href="http://huisaddison.com/blog/category/pelican.html">Pelican</a></li>
+	              <li ><a href="http://huisaddison.com/blog/category/photography.html">Photography</a></li>
+	              <li ><a href="http://huisaddison.com/blog/category/python.html">Python</a></li>
+	              <li class="active"><a href="http://huisaddison.com/blog/category/statistics.html">Statistics</a></li>
+	          </ul>
+	        </nav>
+
+
+
+		  </div>
+
+	  </div>
+
+      <footer>
+		<p role="contentinfo">
+        © 2017 Addison - Proudly powered by <a href="https://github.com/getpelican/pelican">pelican</a>.  
+        <a href="https://github.com/huisaddison/blog-theme">Theme</a> derived from <a href="https://github.com/fle/pelican-simplegrey">pelican-simplegrey</a>.  
+        Math rendered beautifully by <a href="https://www.mathjax.org/">MathJax</a>.
+    	</p>
+
+	  </footer>	
+
+	</div>
+	
+
+</body>
+</html>
