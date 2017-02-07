@@ -22,8 +22,10 @@
 
 ## Research Experience
 #### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - present
+* Investigating minimax convergence rates for estimation of bandable precision
+  matrices.
 * Implementing approximations to second-order optimization algorithms (e.g.,
-  sketched Newton) in distributed settings 
+  sketched Newton) in distributed settings .
 
 #### **Research Assistant, Yale Inst. for Network Sci.** | Aug. 2015 - May 2016
 * Wrote pruning and local clustering algorithms based on novel research (C++)
