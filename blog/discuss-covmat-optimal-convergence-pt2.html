@@ -325,19 +325,23 @@ rewrite the total variation affinity as one minus the total variation distance:
 \int q_0 \wedge q_1 d\mu =  1 - \frac{1}{2}\int |q_0-q_1|d\mu
 $$</div>
 <p>
-Then, we may apply Jensen's inequality on the latter term squared:
+Then, we may free ourselves of the absolute value by writing the integral
+as though we are integrating with respect to <span class="math">\(q_1\)</span>, and then apply
+Jensen's inequality:
 </p>
 <div class="math">\begin{align}
 \left[\int|q_0 - q_1|d\mu\right]^2
-    &amp;\leq   \int (q_0 - q_1)^2 d\mu         \\
-    &amp;\stackrel{?}{\leq} \int \frac{(q_0-q_1)^2}{q_1}d\mu        \\
+    &amp;=  \left[\int\left(\frac{|q_0 - q_1|}{q_1}\right)q_1d\mu\right]^2  \\
+    &amp;\leq\int\left(\frac{|q_0 - q_1|}{q_1}\right)^2q_1d\mu  \\
     &amp;= \int \frac{q_0^2-2q_0q_1+q_1^2}{q_1}d\mu        \\
     &amp;= \int \frac{q_0^2}{q_1} - 2q_0 + q_1d\mu        \\
     &amp;= \int \frac{q_0^2}{q_1}d\mu - 1   
 \end{align}</div>
 <p>
-I will update this post when I figure out why the upper bound in line (2)
-holds.  Therefore, to establish a bound on the total variation affinity:
+The <span class="math">\(q_1^2\)</span> in the denominator allows us to get rid of the <span class="math">\(q_1\)</span> outside
+the fraction that we treated as our measure of integration when applying
+Jensen's inequality in line (2).  This allows us to go on to establish a bound
+on the total variation affinity:
 </p>
 <div class="math">$$
 \norm{\mathbf{P}_{\theta_0} \wedge \mathbf{\bar P}}
