@@ -177,23 +177,8 @@ and so the corresponding estimates of the precision matrix would be:
 \Omega^{ora}_{A, A} = (\omega^{ora}_{kl})_{k, l \in A}
     = \left(\Theta^{ora}_{A, A}\right)^{-1}
 $$</div>
-<p>But because <span class="math">\(\beta\)</span> is unknown, we must estimate <span class="math">\(\beta\)</span> and use its estimator
-to then estimate <span class="math">\(\epsilon_A\)</span>.  The authors introduce a scaled lasso regression
-problem to do this.  For each <span class="math">\(m \in A = \{i, j\}\)</span>, they perform the
-optimization: 
-</p>
-<div class="math">$$
-\left\{\hat\beta_m, \hat\theta^{1/2}_{mm}\right\}
-=
-\arg\min_{b\in\RR^{p-2},\\\sigma \in \RR^+}
-\left\{
-\frac{\norm{\XX_m - \XX_{A^c}b}^2}{2n\sigma}
-+ \frac{\sigma}{2} 
-+ \lambda\sum_{k\in A^c}\frac{\norm{\XX_k}}{\sqrt{n}}|b_k|
-\right\}
-$$</div>
-<p>With these <span class="math">\(\hat\beta\)</span> estimates, we are able to define the residuals of the
-scaled lasso regression:
+<p>Suppose we have an adequate estimates of the regression weights <span class="math">\(\hat\beta\)</span>.
+Based on <span class="math">\(\hat\beta\)</span>, we may derive estimates <span class="math">\(\hat\epsilon\)</span> of the residuals.
 </p>
 <div class="math">$$
 \hat\epsilon_A = \XX_A - \XX_{A^c}\hat\beta
@@ -211,6 +196,41 @@ A}\)</span>:
 <div class="math">$$
 \hat\Omega_{A, A} = \hat\Theta_{A, A}^{-1}
 $$</div>
+<p>To calculate the estimates <span class="math">\(\hat\beta\)</span>, the authors introduce a scaled lasso
+regression problem.  For each <span class="math">\(m \in A = \{i, j\}\)</span>, they perform the
+optimization: 
+</p>
+<div class="math">$$
+\left\{\hat\beta_m, \hat\theta^{1/2}_{mm}\right\}
+=
+\arg\min_{b\in\RR^{p-2},\\\sigma \in \RR^+}
+\left\{
+\frac{\norm{\XX_m - \XX_{A^c}b}^2}{2n\sigma}
++ \frac{\sigma}{2} 
++ \lambda\sum_{k\in A^c}\frac{\norm{\XX_k}}{\sqrt{n}}|b_k|
+\right\}
+$$</div>
+<p>
+Intuitively, the scaling factor on the <span class="math">\(\ell_1\)</span> penalty implicitly standardizes
+the design vector to length <span class="math">\(\sqrt{n}\)</span> such that the <span class="math">\(\ell_1\)</span> penalty is
+applied to the new coefficients <span class="math">\(\frac{\norm{\XX_k}}{\sqrt n}b_k\)</span>.</p>
+<p>The authors also consider the following least squares estimator, based on
+the model <span class="math">\(\hat S_{mm}\)</span> selected by the scaled lasso estimation problem:
+</p>
+<div class="math">$$
+\left\{\hat\beta_m, \hat\theta^{1/2}_{mm}\right\}
+=
+\arg\min_{b\in\RR^{p-2},\\\sigma \in \RR^+}
+\left\{
+    \frac{\norm{\XX_m - \XX_{A^c}b}^2}{2n\sigma}
+    + \frac{\sigma}{2} 
+    : \mathrm{supp}(b) \subseteq \hat S_{mm}
+\right\}
+$$</div>
+<p>
+Essentially, after determining the support of <span class="math">\(b\)</span> through the scaled lasso
+estimation problem, we can fit least squares entries for <span class="math">\(\hat\beta_m\)</span> only
+on the features in the support.</p>
 <p>In my upcoming posts about this paper, I will review the inference results and
 step through the associated proofs.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {

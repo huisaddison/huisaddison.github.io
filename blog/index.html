@@ -34,12 +34,14 @@
     $$
     \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
     \newcommand{\RR}{\mathbf{R}}
+    \newcommand{\DD}{\mathbf{D}}
     \newcommand{\PP}{\mathbf{P}}
     \newcommand{\EE}{\mathbf{E}}
     \newcommand{\XX}{\mathbf{X}}
     \newcommand{\Nn}{\mathcal{N}}
-    \{\Nn}{\mathcal{N}}
+    \newcommand{\Nn}{\mathcal{N}}
     \DeclareMathOperator{\var}{var}
+    \DeclareMathOperator{\diag}{diag}
     $$
 </div>
 
@@ -126,14 +128,67 @@ Their approach is to:</p>
 <p>By coupling the actual estimator to the oracle MLE and then proving nice
 properties for the oracle MLE, we can work towards nice properties for
 the actual estimator.</p>
+<p>First, we state a few conditions, which will be useful in our analysis of
+<strong>Theorem 2</strong>.  When these conditions hold for certain fixed constant <span class="math">\(C_0\)</span>,
+<span class="math">\(\varepsilon_\Omega \rightarrow 0\)</span>, and all <span class="math">\(\delta \geq 1\)</span>, the asymptotic
+normality and efficiency properties will hold, as we will see in the analysis
+of Theorem 2.</p>
+<p>The first condition is:
+</p>
+<div class="math">\begin{align}
+\max_{A: A = \{i, j\}}
+\PP\left\{
+\norm{\XX_{A^c}\left(\hat\beta_{A^c, A} - \beta_{A^c, A}\right)}^2
+\geq C_0 s \delta\log p
+\right\}
+\leq p^{-\delta + 1}\varepsilon_\Omega
+\end{align}</div>
+<p>
+Observing that <span class="math">\(\XX_{A^c}\left(\hat\beta_{A^c, A} - \beta_{A^c, A}\right)\)</span>
+is equivalent to <span class="math">\(\norm{\epsilon_A - \hat\epsilon_A}^2\)</span>, we may interpret
+this as a concentration bound on the deviation of the residual estimates
+from the oracle residuals.</p>
+<p>The next condition is:
+</p>
+<div class="math">\begin{align}
+\max_{A:A = \{i, j\}}
+\PP\left\{
+\norm{
+    \bar\DD^\frac{1}{2}_{A^c}
+    \left(\hat\beta_{A^c, A} - \beta_{A^c, A}\right)
+}_1 \geq C_0 s \sqrt{\delta\frac{\log p}{n}}
+\right\}
+\leq p^{-\delta+1}\varepsilon_\Omega
+\end{align}</div>
+<p>
+with <span class="math">\(\bar \DD = \diag\left(\frac{\XX^\top\XX}{n}\right)\)</span>.  I'm not sure
+what this says beyond that the regression estimates will be close to the
+oracle estimators after rescaling by the standard deviations of the columns
+of the feature matrix.  I will update this post when I find out more.</p>
+<p>The final condition is, for <span class="math">\(\theta_{ii}^{ora} = \frac{\norm{\XX_i
+- \XX{A^c}\beta_{A^c, i}}^2}{n}\)</span>,
+</p>
+<div class="math">\begin{align}
+\max_{A: A = \{i, j\}}
+\PP\left\{
+\left|
+\frac{\hat\theta_{ii}}{\theta_{ii}^{ora}} - 1
+\right| \geq
+C_0 s \delta \frac{\log p}{n}
+\right\}
+\leq p^{-\delta + 1}\varepsilon_\Omega
+\end{align}</div>
+<p>
+with a certain complexity measure <span class="math">\(s\)</span> of the precision matrix <span class="math">\(\Omega\)</span>,
+assuming the spectrum of <span class="math">\(\Omega\)</span> is bounded, and <span class="math">\(n \geq \frac{(s\log
+p)^2}{c_0}\)</span> for a sufficiently small <span class="math">\(c_0 &gt; 0\)</span>.  </p>
 <h2>Statement</h2>
 <p><strong>Theorem 2.</strong> <em>Let <span class="math">\(\hat\Theta_{A, A}\)</span> and <span class="math">\(\hat\Omega_{A, A}\)</span> be estimators
-defined in (2) and (3) respectively, and <span class="math">\(\lambda = (1 + \varepsilon)
-\sqrt\frac{2\delta\log p}{n}\)</span> for any <span class="math">\(\delta \geq 1\)</span> and <span class="math">\(\varepsilon &gt; 0\)</span>
-in equation (1).</em></p>
+defined in (2) and (3) respectively.  Let <span class="math">\(\delta \geq 1\)</span>.  Suppose <span class="math">\(s \leq
+\frac{c_0n}{\log p}\)</span> for a sufficiently small constant <span class="math">\(c_0 &gt; 0\)</span>.</em></p>
 <ol>
-<li><em>Suppose <span class="math">\(s \leq \frac{c_0n}{\log p}\)</span> for a sufficiently small constant
-    <span class="math">\(c_0 &gt; 0\)</span>.  We have
+<li><em>Suppose that conditions (7), (8), (9) hold with <span class="math">\(C_0\)</span> and
+    <span class="math">\(\varepsilon_\Omega\)</span>.  Then
     <div class="math">\begin{align}
     \max_{G^*(M, s, \lambda)}\max_{A:A=\{i, j\}}
     \PP\left\{
@@ -150,59 +205,36 @@ in equation (1).</em></p>
     \right\}\leq o\left(p^{-\delta + 1}\right)
     \end{align}</div>
     where <span class="math">\(\Theta^{ora}_{A, A}\)</span> and <span class="math">\(\Omega^{ora}_{A, A}\)</span> are the oracle
-    estimators and <span class="math">\(C_1\)</span> and <span class="math">\(C_1'\)</span> are positive constants depending on
-    <span class="math">\(\{\varepsilon, c_0, M\}\)</span> only.</em></li>
-<li><em>There exist constants <span class="math">\(D_1\)</span> and <span class="math">\(\vartheta \in (0, \infty)\)</span>, and three
-    marginally standard normal random variables <span class="math">\(Z_{kl}\)</span>, where <span class="math">\(kl = ii, ij,
-    jj\)</span>, such that whenever <span class="math">\(|Z_{kl}| \leq \vartheta\sqrt{n}\)</span> for all <span class="math">\(kl\)</span>,
+    estimators and <span class="math">\(C_1\)</span> is a positive constant depending only on
+    <span class="math">\(\{C_0, \max_{m\in A = \{i, j\}}\theta_{mm}\}\)</span>.</em></li>
+<li><em>Let <span class="math">\(\lambda = (1 + \varepsilon)\sqrt{\frac{2\delta\log p}{n}}\)</span> with
+    <span class="math">\(\varepsilon &gt; 0\)</span> be the <span class="math">\(\lambda\)</span> parameter in the scaled lasso
+    estimation problem, and let <span class="math">\(\hat\beta_{A^c, A}\)</span> be the scaled lasso 
+    estimator, or the LSE after the scaled lasso selection.  Then (4),
+    (5), and (6), and thus (7) and (8) hold for all <span class="math">\(\Omega \in
+    \mathcal{G}^*(M, s, \lambda)\)</span> with a certain constant <span class="math">\(C_0\)</span> depending on
+    ${\varepsilon, c_0, M} only and</em>
+    <div class="math">\begin{align}
+    \max_{\Omega \in \mathcal{G}^*(M, s, \lambda)} \varepsilon_\Omega = o(1)
+    \end{align}</div>
+</li>
+<li><em>There exist constants <span class="math">\(D_1\)</span> and <span class="math">\(\vartheta \in (0, \infty)\)</span>, and four
+    marginally standard normal random variables <span class="math">\(Z1, Z_{kl}\)</span>, where <span class="math">\(kl = ii,
+    ij, jj\)</span>, such that whenever <span class="math">\(|Z_{kl}| \leq \vartheta\sqrt{n}\)</span> for all <span class="math">\(kl\)</span>,
     we have
     <div class="math">\begin{align}
     \left|\kappa_{ij}^{ora} - Z'\right|
     \leq
     \frac{D_1}{\sqrt{n}}\left(1 + Z_{ii}^2 + Z_{ij}^2 + Z_{jj}^2\right)
     \end{align}</div>
-    where <span class="math">\(Z' \sim \Nn(0, 1)\)</span>, which can be defined as a linear combination
-    of <span class="math">\(Z_{kl}\)</span>.</em></li>
+    where <span class="math">\(Z'\)</span>, which can be defined as a linear combination of <span class="math">\(Z_{kl}\)</span>.</em></li>
 </ol>
 <p>Intuitively, statement (1) says that there is a very low probability that
 the maximum entrywise deviation of the actual estimator from the oracle MLE
-is larger than a constant that we can control.  Statement (2) says that
+is larger than a constant that we can control.  Statement (2) shows that
+the conditions are met such that statement (1) holds.  Statement (3) says that
 the rescaled oracle MLE behaves more or less asymptotically normally.</p>
 <h2>Proof for Theorem 2.1</h2>
-<p>First, we present the following lemma:</p>
-<p><strong>Lemma 2.</strong> <em>Let <span class="math">\(\lambda = (1 + \varepsilon)\sqrt\frac{2\delta\log p}{n}\)</span> for
-any <span class="math">\(\delta \geq 1\)</span> and <span class="math">\(\varepsilon &gt; 0\)</span>.  Define the event <span class="math">\(E_m\)</span> as follows:
-<div class="math">\begin{align}
-\left|
-\hat\theta_{mm} - \theta^{ora}_{mm} \right|
-    &amp;\leq   C_1'\lambda^2s  \\
-\norm{\beta_m - \hat\beta_m}_1
-    &amp;\leq C_2'\lambda s   \\
-n^{-1}\norm{\XX_{A^c}\left(\beta_m - \hat\beta_m\right)}^2
-    &amp;\leq C_3'\lambda^2 s   \\
-\norm{n^{-1}\XX_{A^c}^\top\epsilon_m}_\infty
-    &amp;\leq C_4'\lambda
-\end{align}</div>
-for <span class="math">\(m \in \{i, j\}\)</span> and some constants <span class="math">\(C_k', 1 \leq k \leq 4\)</span>.  Under
-the assumptions of Theorem 2, we have:</em>
-</p>
-<div class="math">$$
-\PP\left\{E_m^c\right\} \leq o\left(p^{-\delta + 1}\right)
-$$</div>
-<p>The proof of <strong>Lemma 2</strong> is deferred to a future post.</p>
-<p>First, we consider <span class="math">\(\theta_{ii}^{ora}\)</span> and <span class="math">\(\theta_{jj}^{ora}\)</span>.  By the
-definition of <span class="math">\(\lambda\)</span> and Equation (7) of <strong>Lemma 2</strong>, the concentration
-bound on the deviations in (4) holds for <span class="math">\(\theta_{ii}^{ora},
-\theta_{ij}^{ora}\)</span>.  We then consider the event <span class="math">\(E_i \cap E_j\)</span>:</p>
-<div class="math">\begin{align*}
-\left|\hat\theta_{ij} - \theta^{ora}_{ij}\right|
-&amp;=  \left|
-    \frac{\hat\epsilon_i^\top\hat\epsilon_j}{n}
-    - 
-    \frac{\epsilon_i^\top\epsilon_j}{n}
-    \right|
-\end{align*}</div>
-<p>(To be continued!)</p>
 <h2>Proof for Theorem 2.2</h2>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
