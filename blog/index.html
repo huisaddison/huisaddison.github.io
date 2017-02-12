@@ -99,14 +99,15 @@ on the order <span class="math">\(\sqrt\frac{\log p}{n}\)</span> in this paper.<
 <p>Intuitively, this parameter space is a mix of the <span class="math">\(\ell_0\)</span> norm, which
 measures sparsity, and the <span class="math">\(\ell_1\)</span> norm, which is the sum of absolute
 values, imposed on each row.  For <span class="math">\(\lambda\)</span> very small, we recover the pure
-<span class="math">\(\ell_0\)</span> norm; this special case is <strong>Theorem 1</strong>.</p>
-<p>Appealing the graphical model representation of the multivariate normal
-distribution with nonzero entries of the precision matrix giving the edges,
-we may observe that when <span class="math">\(|\omega_{ij}|\)</span> is zero or larger than <span class="math">\(\lambda\)</span>, 
-<span class="math">\(s_\lambda\)</span> is equivalent to the maximum node degree of the graph (the
-degree of each node is equivalent to the number of nonzero entries on
-each row, or column).  Finally, we note that the spectrum (eigenvalues) of
-the matrix are bounded, a fact upon which the later analysis relies.</p>
+<span class="math">\(\ell_0\)</span> norm; this special case is the parameter space used in <strong>Theorem 1</strong>.</p>
+<p>Appealing to the graphical model representation of the multivariate normal
+distribution, in which a nonzero entry <span class="math">\(\omega_{ij}\)</span> in the precision matrix
+implies the existence of an edge between nodes <span class="math">\(i\)</span> and <span class="math">\(j\)</span>, we may observe that
+when <span class="math">\(|\omega_{ij}|\)</span> is zero or larger than <span class="math">\(\lambda\)</span>, <span class="math">\(s_\lambda\)</span> is
+equivalent to the maximum node degree of the graph (the degree of each node is
+equivalent to the number of nonzero entries on each row, or column).  Finally,
+we note that the spectrum (eigenvalues) of the matrix are bounded, a fact upon
+which the later analysis relies.</p>
 <p>The authors then prove a theorem that gives an error bound on the estimates.
 Their approach is to:</p>
 <ol>
