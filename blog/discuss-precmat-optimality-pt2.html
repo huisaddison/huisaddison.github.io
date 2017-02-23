@@ -48,9 +48,12 @@
     \newcommand{\EE}{\mathbf{E}}
     \newcommand{\XX}{\mathbf{X}}
     \newcommand{\Nn}{\mathcal{N}}
-    \newcommand{\Nn}{\mathcal{N}}
+    \newcommand{\Gg}{\mathcal{G}}
+    \newcommand{\la}{\langle}
+    \newcommand{\ra}{\rangle}
     \DeclareMathOperator{\var}{var}
     \DeclareMathOperator{\diag}{diag}
+    \DeclareMathOperator{\cov}{cov}
     $$
 </div>
 
@@ -202,7 +205,8 @@ defined in (2) and (3) respectively.  Let <span class="math">\(\delta \geq 1\)</
     \PP\left\{
         \norm{\hat\Theta_{A, A} - \Theta_{A, A}^{ora}}_\infty
         &gt; C_1 s \frac{\log p}{n}
-    \right\}\leq o\left(p^{-\delta + 1}\right)
+    \right\}\leq 6\varepsilon_\Omega p^{-\delta + 1}
+        + \frac{4p^{-\delta + 1}}{\sqrt{2\log p}}
     \end{align}</div>
     and
     <div class="math">\begin{align}
@@ -210,7 +214,8 @@ defined in (2) and (3) respectively.  Let <span class="math">\(\delta \geq 1\)</
     \PP\left\{
         \norm{\hat\Omega_{A, A} - \Omega_{A, A}^{ora}}_\infty
         &gt; C_1' s \frac{\log p}{n}
-    \right\}\leq o\left(p^{-\delta + 1}\right)
+    \right\}\leq 6\varepsilon_\Omega p^{-\delta + 1}
+        + \frac{4p^{-\delta + 1}}{\sqrt{2\log p}}
     \end{align}</div>
     where <span class="math">\(\Theta^{ora}_{A, A}\)</span> and <span class="math">\(\Omega^{ora}_{A, A}\)</span> are the oracle
     estimators and <span class="math">\(C_1\)</span> is a positive constant depending only on
@@ -221,7 +226,7 @@ defined in (2) and (3) respectively.  Let <span class="math">\(\delta \geq 1\)</
     estimator, or the LSE after the scaled lasso selection.  Then (4),
     (5), and (6), and thus (7) and (8) hold for all <span class="math">\(\Omega \in
     \mathcal{G}^*(M, s, \lambda)\)</span> with a certain constant <span class="math">\(C_0\)</span> depending on
-    ${\varepsilon, c_0, M} only and</em>
+    <span class="math">\(\{\varepsilon, c_0, M\}\)</span> only and</em>
     <div class="math">\begin{align}
     \max_{\Omega \in \mathcal{G}^*(M, s, \lambda)} \varepsilon_\Omega = o(1)
     \end{align}</div>
