@@ -372,7 +372,8 @@ we have:
         \left|
         \left(\beta_i - \hat\beta_i\right)^\top
         \bar\DD^{-1/2}\bar\DD^{1/2} \XX_{A^c}^\top \epsilon_j
-        \right|
+        \right| \\
+    &amp;\qquad
         + \left|
         \epsilon_i^\top \left(\beta_j - \hat\beta_j\right)
         \bar\DD^{-1/2}\bar\DD^{1/2}\XX_{A^c}
@@ -386,8 +387,8 @@ we have:
             \left(\XX\bar\DD^{-1/2}\right)_{A^c}^\top\epsilon_i
         }_\infty\norm{
             \bar\DD^{1/2}\left(\beta_j - \hat\beta_j\right)
-        }_1
-        +
+        }_1 \\
+    &amp;\qquad +
         \norm{
             \left(\XX\bar\DD^{-1/2}\right)_{A^c}^\top\epsilon_j
         }_\infty\norm{
@@ -473,6 +474,66 @@ where
             \partial x_3^{\beta_3}
         }
 \end{align*}</div>
+<p>
+We observe that Taylor's Theorem gives us a uniform upper bound on the
+coefficients of the remainder terms:
+</p>
+<div class="math">$$
+\left|
+R_\beta\left(\Theta^{ora}_{A, A}\right)
+\right| \leq 2 \max_{|\alpha| = 2}\max_{\Theta_\in B}
+D^\alpha\omega_{ij}(\Theta) \leq C_2
+$$</div>
+<p>
+where <span class="math">\(B\)</span> is a sufficiently small compact ball centered at <span class="math">\(\Theta\)</span>.  The upper
+bound holds when <span class="math">\(\Theta^{ora}\)</span> is in <span class="math">\(B\)</span>, an assumption which can be
+satisfied by picking a small enough value <span class="math">\(\vartheta\)</span> in the assumption
+<span class="math">\(\norm{\eta^{ora}}_\infty \leq \vartheta \sqrt{n}\)</span>.  Note that here <span class="math">\(D^\alpha\)</span>
+is not a constant, but a second order derivative.  This bound follows from
+the fact that equality in the Taylor expansion is satisfied when evaluating
+the second order term with some <span class="math">\(\xi\)</span> between <span class="math">\(\Theta\)</span> and <span class="math">\(\Theta^{ora}\)</span>, so
+the coefficients are naturally bounded above by the maximum value of the
+second order coefficients in <span class="math">\(B\)</span>, as it encloses both <span class="math">\(\Theta\)</span> and
+<span class="math">\(\Theta^{ora}\)</span>.  The bottom line is that when the oracle MLE's value is
+sufficiently close to the truth, a linear approximation is basically good
+enough.</p>
+<p>With this linear approximation to <span class="math">\(\omega_{ij}\)</span> as a function of <span class="math">\(\theta_{ij}\)</span>
+(and a quadratic correction term we can control), we can then express this
+relationship in terms of <span class="math">\(\kappa_{ij}\)</span> and <span class="math">\(\eta_{ij}\)</span>, which are simply
+<span class="math">\(\omega_{ij}, \theta_{ij}\)</span> rescaled by constants, respectively:
+</p>
+<div class="math">$$
+\kappa_{ij}^{ora} = h_1\eta_{ii}^{ora}
++ h_2\eta_{ij}^{ora} + h_3\eta_{jj}^{ora}
++ \sum_{|\beta| = 2}
+\frac{D_\beta R_\beta(\Theta^{ora})}{\sqrt{n}}(\eta^{ora})^\beta
+$$</div>
+<p>
+where <span class="math">\(h_1, h_2, h_3, D_\beta\)</span> are constants.  Subtracting <span class="math">\(Z' = h_1Z_1
++ h_2Z_2 + h_3Z_3 \sim \Nn(0, 1)\)</span> from both sides and applying Hölder's
+Inequality, we obtain:
+</p>
+<div class="math">$$
+|\kappa_{ij}^{ora} - Z'| \leq
+\left(
+\sum_{k=1}^3 |h_k|
+\right) \norm{Z - \eta^{ora}}_\infty + \frac{C_3}{\sqrt{n}}\norm{\eta^{ora}}^2
+$$</div>
+<p>
+Applying the KMT inequality and the fact that <span class="math">\(\norm{\eta^{ora}}^2 \leq C_4
+(Z_{ii}^2 + Z_{ij}^2 + Z_{jj}^2)\)</span> for some large constant <span class="math">\(C_4\)</span>, we complete
+the proof:
+</p>
+<div class="math">\begin{align*}
+|\kappa_{ij}^{ora} - Z'| &amp;\leq
+\left(
+\sum_{k=1}^3 |h_k|
+\right) \norm{Z - \eta^{ora}}_\infty
++ \frac{C_3}{\sqrt{n}}\norm{\eta^{ora}}^2\\
+&amp;\leq \frac{D_1}{\sqrt{n}} ( 1 + Z_{ii}^2 + Z_{ij}^2 + Z_{jj}^2)
+\end{align*}</div>
+<p>
+<div align="right"> &#8718; </div></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
