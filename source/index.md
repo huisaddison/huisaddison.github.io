@@ -1,6 +1,9 @@
 ## Work Experience
-#### **Data Scientist, OnCorps (Cambridge, MA)** | Summer 2016
+#### **Data Scientist, Facebook Seattle** | July 2017 - 
+* Starting this summer, I will be joining Facebook full-time as a Data
+  Scientist.
 
+#### **Data Scientist, OnCorps (Cambridge, MA)** | Summer 2016
 * Authored internal R library to rapidly and faithfully visualize
   classification trees via D3.js, with integration into core products and
   services 
