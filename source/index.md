@@ -1,6 +1,6 @@
 ## Work Experience
 #### **Data Scientist, Facebook Seattle** | July 2017 - 
-* Starting this summer, I will be joining Facebook full-time as a Data
+* This summer, I will be joining Facebook full-time as a Data
   Scientist.
 
 #### **Data Scientist, OnCorps (Cambridge, MA)** | Summer 2016
