@@ -127,7 +127,7 @@ Let us consider the <span class="math">\(\Sigma(\theta)\)</span> where <span cla
 </p>
 <div class="math">$$
 \Sigma(\theta) = \mathbf{I}_{p\times p}
-    + M (k + 2)^{-\alpha -1}\sum_{m=1}^k B(m, k)
+    + M (2k)^{-\alpha -1}\sum_{m=1}^k B(m, k)
 $$</div>
 <p>
 We observe that <span class="math">\(\sum_{m=1}^k B(m, k)\)</span> is a matrix of ones on the
@@ -135,8 +135,8 @@ off-diagonals up to row and column <span class="math">\(2k \leq p\)</span>.  The
 sum of entries more than <span class="math">\(k\)</span> away from the diagonal is:
 </p>
 <div class="math">\begin{align*}
-    \frac{k}{2} M k^{-\alpha - 1} 2^{- \alpha - 1}
-    &amp;=  M k^{-\alpha} 2^{- \alpha - 2}  \\
+    k\cdot M k^{-\alpha - 1} 2^{- \alpha - 1}
+    &amp;=  M k^{-\alpha} 2^{- \alpha - 1}  \\
     &amp;\leq M k^{-\alpha}
 \end{align*}</div>
 <p>
@@ -149,7 +149,7 @@ follows that <span class="math">\(\mathcal{F_{11}} \subset \mathcal{F}(M, M_0)\)
 </p>
 <div class="math">$$
 \mathcal{F}_{12} = \left\{
-\Sigma_m: \Sigma_m \mathbf{I}_{p\times p} + \left(
+\Sigma_m: \Sigma_m =\mathbf{I}_{p\times p} + \left(
 \sqrt{\frac{\tau}{n}}\mathbf{1}\{i = j = m\}\right)_{p \times p},
 0 \leq m \leq p_1
 \right\}
@@ -212,7 +212,7 @@ based on an observation from a distribution in the collection <span class="math"
 }{
     H(\theta, \theta')
 }\cdot\frac{k}{2}\cdot
-\min_{H(\theta, \theta')}\norm{\mathbf{P}_\theta \wedge\mathbf{P}_{\theta'}}
+\min_{H(\theta, \theta')=1}\norm{\mathbf{P}_\theta \wedge\mathbf{P}_{\theta'}}
 $$</div>
 <p>The authors give a natural interpretation of Assouad's Lemma in terms of
 multiple comparisons:</p>
@@ -385,13 +385,13 @@ we need only show that <span class="math">\(\int \frac{(\frac{1}{p_1}\sum f_m)^2
     }{
         \prod_{1\leq k \leq p_1} \phi_1(x_k^i)
     }d\left\{x_k^i\right\}_{1\leq k \leq p_1}   \\
-&amp;=  \prod_{1\leq i\neq n}\int
+&amp;=  \prod_{1\leq i\leq n}\int
     \left[\prod_{1 \leq k \leq p_1\\k \not\in\{j, m\}}
     \phi_1(x_k^i)\right]
     \phi(x_m^i)\phi(x_j^i)
     d\left\{x_k^i\right\}_{1\leq k \leq p_1}    \\
 &amp;\text{(Independence.)} \\
-&amp;=  \prod_{1\leq i\neq n}
+&amp;=  \prod_{1\leq i\leq n}
     \left[
     \left[
     \prod_{1 \leq k \leq p_1\\k \not\in\{j, m\}}
@@ -401,7 +401,7 @@ we need only show that <span class="math">\(\int \frac{(\frac{1}{p_1}\sum f_m)^2
     \int\phi(x_m^i)d x_m^i
     \int\phi(x_j^i)d x_j^i
     \right] \\
-&amp;=  \prod_{1\leq i\neq n}
+&amp;=  \prod_{1\leq i\leq n}
     1   \\
 &amp;=  1
 \end{align*}</div>

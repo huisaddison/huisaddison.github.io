@@ -159,27 +159,36 @@ This inequality holds by construction (see Equation \eqref{eq:parameter-space}).
 <h3>Variance</h3>
 <p>The authors rely on random matrix theory to bound the variance.  Of particular
 note is</p>
-<p><strong>Lemma 2.</strong> <em>There exists a submatrix <span class="math">\(M_l^{(m)}\)</span>:</em>
+<p><strong>Lemma 2.</strong> <em>Define the submatrix <span class="math">\(M_l^{(m)}\)</span>:</em>
+</p>
+<div class="math">$$
+M_l^{(m)} = \left(
+\tilde\sigma_{ij}\mathbf{1}\{l \leq i &lt; l + m, l \leq j &lt; l + m\}
+\right)_{p\times p}
+$$</div>
+<p>
+<em>then we have the following bound:</em>
 </p>
 <div class="math">$$
 \Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert \leq 3 N^{(m)}
-= \Vert M_l^{(m)} - \mathbf{E} M_l^{(m)}\Vert
+= \max_{1 \leq l \leq p - m + 1}\Vert M_l^{(m)} - \mathbf{E} M_l^{(m)}\Vert
 $$</div>
 <p>They also provide a concentration bound on the operator norm of this submatrix.</p>
 <p><strong>Lemma 3.</strong> <em>There is a constant <span class="math">\(\rho_1 &gt; 0\)</span> such that</em>
 </p>
 <div class="math">$$
-\mathbf{P}\left\{N^{(m)} &gt; x\right\} \leq 2p5^m\exp(-nx^2\rho_1)
+\mathbf{P}\left\{N_l^{(m)} &gt; x\right\} \leq 2p5^m\exp(-nx^2\rho_1)
 $$</div>
 <p>
-<em>for all <span class="math">\(0 &lt; x &lt; \rho_1\)</span> and <span class="math">\(1-m \leq 1 \leq p\)</span>.</em></p>
+<em>for all <span class="math">\(0 &lt; x &lt; \rho_1\)</span> and <span class="math">\(1-m \leq l \leq p\)</span>.</em></p>
 <p>Therefore, by Lemma 2, we have:
 </p>
 <div class="math">\begin{align*}
 \mathbf{E}\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert^2
 &amp;\leq 9 \mathbf{E}\left(N^{(m)}\right)^2                    \\
-&amp;= 9 \mathbf{E}\left(N^{(m)}\right)^2[I(N^{(m)} \leq x) + I(N^{(m)} &gt; x)]   \\
-&amp;\leq 9 [x^2 +\mathbf{E} \left(N^{(m)}\right)^2I(N^{(m)} &gt; x)]
+&amp;= 9 \mathbf{E}\left(N^{(m)}\right)^2[\mathbf{1}(N^{(m)} \leq x)
+  + \mathbf{1}(N^{(m)} &gt; x)]   \\
+&amp;\leq 9 [x^2 +\mathbf{E} \left(N^{(m)}\right)^2\mathbf{1}(N^{(m)} &gt; x)]
 \end{align*}</div>
 <p>The next few steps are quite tricky to understand.</p>
 <p>I believe that we can recall the definition of <span class="math">\(N^{(m)}\)</span>:
@@ -193,7 +202,7 @@ the operator norm of the full matrix by recalling the definition of an
 operator norm
 </p>
 <div class="math">$$
-\Vert Av \Vert_{\mathrm{op}} = \sup\{\Vert{Av}\Vert: v \in V, \Vert v \Vert = 1\}
+\Vert A \Vert_{\mathrm{op}} = \sup\{\Vert{Av}\Vert: v \in V, \Vert v \Vert = 1\}
 $$</div>
 <p>
 and seeing that for any vector <span class="math">\(v\)</span>, <span class="math">\(\Vert A_\mathrm{sub} v \Vert \leq \Vert
@@ -224,8 +233,8 @@ Finally, we may apply Cauchy-Schwarz:
 </p>
 <div class="math">\begin{align*}
 \mathbf{E}\Vert \breve\Sigma - \mathbf{E}\breve\Sigma\Vert^2
-&amp;\leq C_1 \left[x^2 + \mathbf{E}\left(\Vert\breve\Sigma\Vert_F + C\right)
-I(N^{(m)} &gt; x)\right]   \\
+&amp;\leq C_1 \left[x^2 + \mathbf{E}\left(\Vert\breve\Sigma\Vert_F + C\right)^2
+\mathbf{1}(N^{(m)} &gt; x)\right]   \\
 &amp;\leq C_1 \left[x^2 + \sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert_F +
 C\right)^4} \sqrt{\mathbf{P}(N^{(m)} &gt; x)}\right]
 \end{align*}</div>
@@ -241,7 +250,7 @@ C\right)^4} \sqrt{\mathbf{P}(N^{(m)} &gt; x)}\right]
 <p>We are able to bound the Frobenius norm:
 </p>
 <div class="math">$$
-\sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert_F + C\right)^4} \leq p^2
+\sqrt{\mathbf{E}\left(\Vert\breve\Sigma\Vert_F + C\right)^4} \leq Cp^2
 $$</div>
 <p>
 by observing that the squared Frobenius norm decouples the entries of the
