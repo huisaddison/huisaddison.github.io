@@ -12,10 +12,10 @@
 * Developed and maintained internal and client-facing dashboards in R Shiny
   to monitor product engagement rates and outcomes 
 
-#### **Teaching Fellow, Yale Statistics; CS** | Jan. 2016 - present
-* Currently I hold office hours for STAT 230, an introduction
-  to the R statistical language through applications in inference, simulation,
-  model selection, $k$-means, PCA, and other methods.
+#### **Teaching Fellow, Yale Statistics; CS** | Jan. 2016 - May 2017
+* Held office hours for STAT 230, an introduction to the R statistical language
+  through applications in inference, simulation, model selection, $k$-means,
+  PCA, and other methods.
 * Served in a teaching and grading role for 'Computational Tools for Data
   Science', covering optimization, dimensionality reduction, clustering,
   dictionary learning, matrix factorization, large-scale data, etc., with
@@ -24,10 +24,10 @@
   taught in R and Python 
 
 ## Research Experience
-#### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - present
-* Investigating minimax convergence rates for estimation of bandable precision
+#### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - May 2017
+* Investigated minimax convergence rates for estimation of bandable precision
   matrices.
-* Implementing approximations to second-order optimization algorithms (e.g.,
+* Implemented approximations to second-order optimization algorithms (e.g.,
   sketched Newton) in distributed settings .
 
 #### **Research Assistant, Yale Inst. for Network Sci.** | Aug. 2015 - May 2016
