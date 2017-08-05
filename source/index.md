@@ -1,7 +1,6 @@
 ## Work Experience
 #### **Data Scientist, Facebook Seattle** | July 2017 - 
-* This summer, I will be joining Facebook full-time as a Data
-  Scientist.
+* As of July 2017, I have joined Facebook full-time as a Data Scientist.
 
 #### **Data Scientist, OnCorps (Cambridge, MA)** | Summer 2016
 * Authored internal R library to rapidly and faithfully visualize
@@ -28,7 +27,7 @@
 * Investigated minimax convergence rates for estimation of bandable precision
   matrices.
 * Implemented approximations to second-order optimization algorithms (e.g.,
-  sketched Newton) in distributed settings .
+  sketched Newton) in distributed settings.
 
 #### **Research Assistant, Yale Inst. for Network Sci.** | Aug. 2015 - May 2016
 * Wrote pruning and local clustering algorithms based on novel research (C++)
@@ -47,6 +46,7 @@
 * **Basic**: C, Git, MongoDB, SQL
 
 ## Miscellanea
+* [notes](pdfs/STAT611Notes.pdf) from Statistics 611 (Statistical Decision Theory)
 * [notes](classnotes/math300.html) from Math 300 (Topics in Analysis)
 * [notes](pdfs/STAT262Notes.pdf) from Statistics 262 (Computational Tools for
   Data Science)
