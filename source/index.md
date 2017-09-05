@@ -2,15 +2,6 @@
 #### **Data Scientist, Facebook Seattle** | July 2017 - 
 * As of July 2017, I have joined Facebook full-time as a Data Scientist.
 
-#### **Data Scientist, OnCorps (Cambridge, MA)** | Summer 2016
-* Authored internal R library to rapidly and faithfully visualize
-  classification trees via D3.js, with integration into core products and
-  services 
-* Built pipelines for data aggregation, cleanup, and analysis in R and
-  Python 
-* Developed and maintained internal and client-facing dashboards in R Shiny
-  to monitor product engagement rates and outcomes 
-
 #### **Teaching Fellow, Yale Statistics; CS** | Jan. 2016 - May 2017
 * Held office hours for STAT 230, an introduction to the R statistical language
   through applications in inference, simulation, model selection, $k$-means,
