@@ -22,6 +22,10 @@
 * Provided supplementary instruction for 'Introduction to Information Systems',
   taught in R and Python 
 
+## Publications
+* A. Hu and S. Negahban.  Minimax Estimation of Bandable Precision Matrices.
+  To appear in _Advances in Neural Information Processing Systems_, 2017.
+
 ## Research Experience
 #### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - May 2017
 * Investigated minimax convergence rates for estimation of bandable precision
