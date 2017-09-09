@@ -1,32 +1,28 @@
-## Work Experience
+## Experience
 #### **Data Scientist, Facebook Seattle** | July 2017 - 
 * As of July 2017, I have joined Facebook full-time as a Data Scientist.
 
-#### **Teaching Fellow, Yale Statistics; CS** | Jan. 2016 - May 2017
-* Held office hours for STAT 230, an introduction to the R statistical language
-  through applications in inference, simulation, model selection, $k$-means,
-  PCA, and other methods.
-* Served in a teaching and grading role for 'Computational Tools for Data
-  Science', covering optimization, dimensionality reduction, clustering,
-  dictionary learning, matrix factorization, large-scale data, etc., with
-  applications in Python and Spark.
-* Provided supplementary instruction for 'Introduction to Information Systems',
-  taught in R and Python 
-
-## Publications
-* A. Hu and S. Negahban.  Minimax Estimation of Bandable Precision Matrices.
-  To appear in _Advances in Neural Information Processing Systems_, 2017.
-
-## Research Experience
 #### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - May 2017
 * Investigated minimax convergence rates for estimation of bandable precision
   matrices.
 * Implemented approximations to second-order optimization algorithms (e.g.,
   sketched Newton) in distributed settings.
 
+#### **Teaching Fellow, Yale Statistics; CS** | Jan. 2016 - May 2017
+* Served in grading and supplemental teaching roles for various courses in
+  the Statistics and Computer Science Departments, covering material including
+  inference, model selection, optimization, dimensionality reduction,
+  dictionary learning, matrix factorization, etc., with applications in
+  R, Python, and Spark.
+
 #### **Research Assistant, Yale Inst. for Network Sci.** | Aug. 2015 - May 2016
 * Wrote pruning and local clustering algorithms based on novel research (C++)
 * Data cleanup and analysis in R and Python 
+
+## Publications
+* Addison Hu and Sahand Negahban.  Minimax Estimation of Bandable Precision
+  Matrices.  To appear in _Advances in Neural Information Processing Systems_,
+  2017.
 
 ## Projects
 * [Latent Variable Inference with Factor Graphs](pdfs/LatentVariableInferenceWithFactorGraphs.pdf):
@@ -37,8 +33,8 @@
   
 
 ## Languages
-* **Proficient**: R, Python, Spark (Scala), Linux, LaTeX
-* **Basic**: C, Git, MongoDB, SQL
+* **Proficient**: R, Python, Spark (Scala), Linux, LaTeX, SQL
+* **Basic**: C, Git
 
 ## Miscellanea
 * [notes](pdfs/STAT611Notes.pdf) from Statistics 611 (Statistical Decision Theory)
