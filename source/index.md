@@ -15,10 +15,6 @@
   dictionary learning, matrix factorization, etc., with applications in
   R, Python, and Spark.
 
-#### **Research Assistant, Yale Inst. for Network Sci.** | Aug. 2015 - May 2016
-* Wrote pruning and local clustering algorithms based on novel research (C++)
-* Data cleanup and analysis in R and Python 
-
 ## Publications
 * Addison Hu and Sahand Negahban.  Minimax Estimation of Bandable Precision
   Matrices.  To appear in _Advances in Neural Information Processing Systems_,
