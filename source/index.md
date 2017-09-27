@@ -4,9 +4,11 @@
 
 #### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - May 2017
 * Investigated minimax convergence rates for estimation of bandable precision
-  matrices.
-* Implemented approximations to second-order optimization algorithms (e.g.,
-  sketched Newton) in distributed settings.
+  matrices.  [Work to appear in NIPS 2017.](
+  https://nips.cc/Conferences/2017/Schedule?showEvent=9265)
+* [Implemented approximations](https://github.com/huisaddison/newton-sketch)
+  to second-order optimization algorithms (e.g., sketched Newton) in
+  distributed settings.
 
 #### **Teaching Fellow, Yale Statistics; CS** | Jan. 2016 - May 2017
 * Served in grading and supplemental teaching roles for various courses in
