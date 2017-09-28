@@ -88,7 +88,7 @@ HeaderText = HEADER_TEXT_TEMPLATE.format(
 )
 
 FooterText = FOOTER_TEXT_TEMPLATE.format(
-    generate_script = './generate_html.py',
+    generate_script = 'generate_html.py',
     source          = SOURCE_MD,
     today           = date.today().strftime('%Y %B %d'),
 )
