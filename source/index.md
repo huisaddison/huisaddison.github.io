@@ -4,8 +4,9 @@
 
 #### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - May 2017
 * Investigated minimax convergence rates for estimation of bandable precision
-  matrices.  [Work to appear in NIPS 2017.](
+  matrices.  Work to appear in [NIPS 2017.](
   https://nips.cc/Conferences/2017/Schedule?showEvent=9265)
+  Journal version on [arxiv](https://arxiv.org/abs/1710.07006).
 * [Implemented approximations](https://github.com/huisaddison/newton-sketch)
   to second-order optimization algorithms (e.g., sketched Newton) in
   distributed settings.
@@ -19,14 +20,17 @@
 
 ## Publications
 * Addison Hu and Sahand Negahban.  Minimax Estimation of Bandable Precision
-  Matrices.  To appear in _Advances in Neural Information Processing Systems_,
-  2017.
+  Matrices.  To appear in _Advances in Neural Information Processing
+  Systems_, 2017.
 
 ## Projects
-* [Latent Variable Inference with Factor Graphs](pdfs/LatentVariableInferenceWithFactorGraphs.pdf):
+* [Latent Variable Inference with Factor Graphs](
+  pdfs/LatentVariableInferenceWithFactorGraphs.pdf):
   term project for STAT 667, a graduate-level course on probabilistic graphical
   models.  
-* [newton-sketch](https://github.com/huisaddison/newton-sketch): Implementation of [Newton Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic Convergence](https://arxiv.org/abs/1505.02250)
+* [newton-sketch](https://github.com/huisaddison/newton-sketch): Implementation of
+  [Newton Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic
+  Convergence](https://arxiv.org/abs/1505.02250)
   in NumPy and Spark.
   
 
