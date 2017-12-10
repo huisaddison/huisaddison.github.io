@@ -20,7 +20,7 @@
 
 ## Publications
 * Addison Hu and Sahand Negahban.  Minimax Estimation of Bandable Precision
-  Matrices.  To appear in _Advances in Neural Information Processing
+  Matrices.  _Advances in Neural Information Processing
   Systems_, 2017.
 
 ## Projects
