@@ -78,9 +78,9 @@ HeaderText = HEADER_TEXT_TEMPLATE.format(
     position        = 'Data Scientist',
     organization    = 'Facebook',
     resume          = 'pdfs/AddisonHu_Resume.pdf',
-    headshot_url    = 'blog/snow-lake-hike.html',
-    headshot_text   = 'At the Snow Lake Trailhead',
-    headshot        = 'img/snow-lake-trailhead.jpg',
+    headshot_url    = 'https://en.wikipedia.org/wiki/Mount_Pulag',
+    headshot_text   = 'Atop Mount Pulag',
+    headshot        = 'img/mt-pulag.jpg',
     mail_href       = r'mail&#116;o&#58;&#109;a&#37;&#54;9&#108;%40hu&#105;' +
                       r'saddiso%&#54;E&#46;c&#111;m',
     mail            = r'mail&#64;&#104;&#117;i&#115;a&#100;di&#115;&#111;&#110;&' +
