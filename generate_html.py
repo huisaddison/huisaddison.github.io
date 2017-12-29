@@ -46,8 +46,11 @@ HEADER_TEXT_TEMPLATE = """
              <img
              alt=""
              title="{headshot_text}"
-             class="avatar" height="230"
-             src="{headshot}" width="230" />
+             class="avatar"
+             style="border-radius: 5px"
+             height="230"
+             src="{headshot}"
+             width="230" />
          </a>
          </p>
         <p><b>contact: <a class="email" href='{mail_href}'>{mail}</a></b></br>
