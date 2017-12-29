@@ -1,11 +1,12 @@
 ## Experience
 #### **Data Scientist, Facebook Seattle** | July 2017 - 
-* As of July 2017, I have joined Facebook full-time as a Data Scientist.
+* As of July 2017, I have joined Facebook full-time as a Data Scientist.  I
+  work on Search.
 
 #### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - May 2017
 * Investigated minimax convergence rates for estimation of bandable precision
-  matrices.  Work to appear in [NIPS 2017.](
-  https://nips.cc/Conferences/2017/Schedule?showEvent=9265)
+  matrices.  Work appeared in [NIPS 2017.](
+  http://papers.nips.cc/paper/7074-minimax-estimation-of-bandable-precision-matrices)
   Journal version on [arxiv](https://arxiv.org/abs/1710.07006).
 * [Implemented approximations](https://github.com/huisaddison/newton-sketch)
   to second-order optimization algorithms (e.g., sketched Newton) in
@@ -19,9 +20,9 @@
   R, Python, and Spark.
 
 ## Publications
-* Addison Hu and Sahand Negahban.  Minimax Estimation of Bandable Precision
-  Matrices.  _Advances in Neural Information Processing
-  Systems_, 2017.
+* Addison Hu and Sahand Negahban.  [Minimax Estimation of Bandable Precision
+  Matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
+  Information Processing Systems_, 2017.
 
 ## Projects
 * [Latent Variable Inference with Factor Graphs](
