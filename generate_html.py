@@ -54,7 +54,7 @@ HEADER_TEXT_TEMPLATE = """
          </a>
          </p>
         <p><b>contact: <a class="email" href='{mail_href}'>{mail}</a></b></br>
-        <b>resume:</b> <a href="{resume}">download pdf</a><br>
+        <b>cv:</b> <a href="{cv}">download pdf</a><br>
         <b>github:</b> <a href="https://github.com/huisaddison">repositories</a><br>
   <b>more?</b> <a href="./blog/">blog</a></p>
       </header>
@@ -80,7 +80,7 @@ FOOTER_TEXT_TEMPLATE = """
 HeaderText = HEADER_TEXT_TEMPLATE.format(
     position        = 'Data Scientist',
     organization    = 'Facebook',
-    resume          = 'pdfs/AddisonHu_Resume.pdf',
+    cv              = 'pdfs/AddisonHu_CV.pdf',
     headshot_url    = 'blog/cycling-seattle.html',
     headshot_text   = 'with my bicycle',
     headshot        = 'img/schwinn-world-sport.jpg',
