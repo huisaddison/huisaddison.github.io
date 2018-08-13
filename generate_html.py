@@ -78,8 +78,8 @@ FOOTER_TEXT_TEMPLATE = """
 """
 
 HeaderText = HEADER_TEXT_TEMPLATE.format(
-    position        = 'Data Scientist',
-    organization    = 'Facebook',
+    position        = 'PhD Student',
+    organization    = 'Carnegie Mellon University',
     cv              = 'pdfs/AddisonHu_CV.pdf',
     headshot_url    = 'blog/cycling-seattle.html',
     headshot_text   = 'with my bicycle',
