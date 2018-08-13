@@ -14,8 +14,6 @@
   in NumPy and Spark.
   
 ## Experience
-#### **Data Scientist, Facebook Seattle** | July 2017 - August 2018
-* Worked on Search Core Relevance.
 
 #### **Research Assistant, Yale Dept. of Statistics** | Aug. 2016 - May 2017
 * Investigated minimax convergence rates for estimation of bandable precision
@@ -33,10 +31,9 @@
   dictionary learning, matrix factorization, etc., with applications in
   R, Python, and Spark.
 
+#### **Data Scientist, Facebook Seattle** | July 2017 - August 2018
+* Worked on Search Core Relevance.
 
-## Languages
-* **Proficient**: R, Python, Spark (Scala), Linux, LaTeX, SQL
-* **Basic**: C, Git
 
 ## Miscellanea
 * [notes](pdfs/STAT611Notes.pdf) from Statistics 611 (Statistical Decision Theory)
