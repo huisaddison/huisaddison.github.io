@@ -3,8 +3,6 @@
   Matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
   Information Processing Systems_, 2017.
 
-##
-
 ## Awards
 * [NSF GRFP](https://www.nsfgrfp.org/) (Mathematical Statistics): 2020 - 2023
 
