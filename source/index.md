@@ -3,10 +3,12 @@
   Matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
   Information Processing Systems_, 2017.
 
-##
+&nbsp; &nbsp;
 
 ## Awards
 * [NSF GRFP](https://www.nsfgrfp.org/) (Mathematical Statistics): 2020 - 2023
+
+&nbsp; &nbsp;
 
 ## Projects
 * [COVIDCast](covidcast.cmu.edu): Since, March 2020, I have temporarily
@@ -15,12 +17,15 @@
   [Newton Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic
   Convergence](https://arxiv.org/abs/1505.02250)
   in NumPy and Spark.
+
+&nbsp; &nbsp;
   
 ## Professional Experience
 
 #### **Data Scientist, Facebook Seattle** | July 2017 - August 2018
 * Worked on Search Core Relevance.
 
+&nbsp; &nbsp;
 
 ## Miscellanea
 * [notes](pdfs/STAT611Notes.pdf) from Statistics 611 (Statistical Decision Theory)
