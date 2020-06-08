@@ -11,8 +11,8 @@
 &nbsp; &nbsp;
 
 ## Projects
-* [COVIDCast](covidcast.cmu.edu): Since, March 2020, I have temporarily
-  joined [Delphi](delphi.cmu.edu) to aid in COVID-19 forecasting.
+* [COVIDcast](https://covidcast.cmu.edu): Since March 2020, I have temporarily
+  joined [Delphi](https://delphi.cmu.edu/) to aid in COVID-19 forecasting.
 * [newton-sketch](https://github.com/huisaddison/newton-sketch): Implementation of
   [Newton Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic
   Convergence](https://arxiv.org/abs/1505.02250)
