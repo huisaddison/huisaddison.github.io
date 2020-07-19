@@ -78,7 +78,7 @@ FOOTER_TEXT_TEMPLATE = """
 """
 
 HeaderText = HEADER_TEXT_TEMPLATE.format(
-    position        = 'PhD Student',
+    position        = 'PhD Student<br>Statistics & Machine Learning',
     organization    = 'Carnegie Mellon University',
     cv              = 'pdfs/AddisonHu_CV.pdf',
     headshot_url    = '',
