@@ -56,7 +56,6 @@ HEADER_TEXT_TEMPLATE = """
         <p><b>contact: <a class="email" href='{mail_href}'>{mail}</a></b></br>
         <b>cv:</b> <a href="{cv}">download pdf</a><br>
         <b>github:</b> <a href="https://github.com/huisaddison">repositories</a><br>
-  <b>more?</b> <a href="./blog/">blog</a></p>
       </header>
 """
 
