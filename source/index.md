@@ -1,13 +1,15 @@
 ## Publications
+* Addison Hu, Mikael Kuusela, Ann Lee, Donata Giglio, and Kimberly Wood. 
+  [Spatio-temporal methods for estimating subsurface ocean thermal response 
+  to tropical cyclones.](https://arxiv.org/abs/2012.15130)
+  Submitted, 2020.
+  
 * Addison Hu and Sahand Negahban.  [Minimax Estimation of Bandable Precision
   Matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
   Information Processing Systems_, 2017.
 
-&nbsp;
 ## Awards
 * [NSF GRFP](https://www.nsfgrfp.org/) (Mathematical Statistics): 2020 - 2023
-
-&nbsp;
 
 ## Projects
 
@@ -24,8 +26,6 @@
   Convergence](https://arxiv.org/abs/1505.02250)
   in NumPy and Spark.
 
-&nbsp;
-  
 ## Professional Experience
 
 #### **Data Scientist, Facebook Seattle** | July 2017 - August 2018
