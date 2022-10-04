@@ -40,7 +40,7 @@ BODY_TEXT_TEMPLATE = """
 HEADER_TEXT_TEMPLATE = """
       <header>
         <h1>Addison Hu</h1>
-        <p>{position}<br>{organization}</p>
+        <!--- <p>{position}<br>{organization}</p> --->
          <p>
          <a href="{headshot_url}">
              <img
@@ -62,17 +62,8 @@ HEADER_TEXT_TEMPLATE = """
 FOOTER_TEXT_TEMPLATE = """
       <footer>
         <p><small>
-	    Last Updated: {today}
-	</small></p>
-        <p><small>
-	    HTML almost entirely <a href="{generate_script}">generated</a>
-            with python-markdown; <a href="{source}">source.</a>
-	</small></p>
-        <p><small>
-	    All statements and opinions on this website are solely
-	    attributable to the author, Addison Hu, and not to any
-	    organization with which the author is affiliated.
-	</small></p>
+	    Last Updated: {today}.
+        <a href="{source}">Source.</a>
       </footer>
 """
 
