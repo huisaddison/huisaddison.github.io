@@ -11,6 +11,10 @@ Beginning Fall 2022, I am a visiting student researcher at the
 
 ## Publications
 
+* Addison Hu, Alden Green, and Ryan Tibshirani. 
+  [The Voronoigram: Minimax estimation of bounded variation functions from scattered data.](https://arxiv.org/abs/2212.14514)
+  Submitted, 2022.
+
 * Veeranjaneyulu Sadhanala, Yu-Xiang Wang, Addison Hu, and Ryan Tibshirani. 
   [Multivariate trend filtering for lattice data.](https://arxiv.org/pdf/2112.14758) 
   Submitted, 2021.
@@ -34,8 +38,8 @@ Beginning Fall 2022, I am a visiting student researcher at the
   to tropical cyclones.](https://arxiv.org/abs/2012.15130)
   Submitted, 2020.
   
-* Addison Hu and Sahand Negahban.  [Minimax Estimation of Bandable Precision
-  Matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
+* Addison Hu and Sahand Negahban.  [Minimax estimation of bandable precision
+  matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
   Information Processing Systems_, 2017.
 
 ## Awards
