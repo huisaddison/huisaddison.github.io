@@ -1,15 +1,39 @@
 ## About
 
-I am a fifth-year PhD student pursuing a joint degree in the Departments
+I am a final-year PhD student pursuing a joint degree in the Departments
 of [Statistics](https://www.cmu.edu/dietrich/statistics-datascience/index.html)
 and [Machine Learning](https://www.ml.cmu.edu) at Carnegie Mellon University.  I am
 lucky to be advised by [Ryan Tibshirani](https://www.stat.cmu.edu/~ryantibs/).
 
-Beginning Fall 2022, I am a visiting student researcher at the
-[Department of Statistics](https://statistics.berkeley.edu) at UC Berkeley.
+I am currently also a visiting student researcher in the
+[Department of Statistics at UC Berkeley](https://statistics.berkeley.edu).
+
+## Interests
+
+My work touches on statistical methodology, nonparametric theory, and
+optimization.  My main focus at this time is understanding the use of **total
+variation penalties in the scattered data, d-dimensional setting**, which can be
+thought of as a multivariate generalization of locally adaptive regression
+splines or trend filtering.  My collaborators and I have provided a treatment
+of the [piecewise constant case](https://arxiv.org/abs/2212.14514), and we are
+currently working on the piecewise linear case.  In each of these projects, I
+consider the estimation problem from different angles: statistical rates,
+efficient computation, practical usage.
+
+I also have an applied interest in **computational epidemiology**.
+At the beginning of the Covid-19 pandemic, I joined CMU's
+[Delphi group](https://delphi.cmu.edu) on an emergency basis
+to help produce [real-time Covid-19
+indicators](https://www.pnas.org/doi/full/10.1073/pnas.2111452118)
+and [forecasts](https://zoltardata.com/model/307).  I found the work compelling
+enough to continue working on related problems, including [forecasting
+influenza](https://github.com/cdcepi/Flusight-forecast-data/tree/master/data-forecasts/CMU-TimeSeries)
+for [CDC
+FluSight](https://www.cdc.gov/flu/weekly/flusight/index.html).
 
 
-## Publications
+## Papers
+Ordered by time of completion.
 
 * Addison Hu, Alden Green, and Ryan Tibshirani. 
   [The Voronoigram: Minimax estimation of bounded variation functions from scattered data.](https://arxiv.org/abs/2212.14514)
@@ -19,8 +43,8 @@ Beginning Fall 2022, I am a visiting student researcher at the
   [Multivariate trend filtering for lattice data.](https://arxiv.org/pdf/2112.14758) 
   Submitted, 2021.
 
-* Daniel McDonald, Jacob Bien, Alden Green, Addison Hu, et al.  
-  [Can auxiliary indicators improve COVID-19 forecasting and hotspot 
+* Daniel McDonald, Jacob Bien\*, Alden Green\*, Addison Hu\*, et al.  [Can
+  auxiliary indicators improve COVID-19 forecasting and hotspot 
   prediction?](https://www.pnas.org/doi/full/10.1073/pnas.2111453118) 
   _Proceedings of the National Academy of Sciences_, 2021.
 
@@ -30,7 +54,7 @@ Beginning Fall 2022, I am a visiting student researcher at the
 
 * Cramer et al.  [Evaluation of individual and ensemble probabilistic 
   forecasts of COVID-19 mortality in the United
-  States.](https://www.pnas.org/doi/10.1073/pnas.2113561119).
+  States.](https://www.pnas.org/doi/10.1073/pnas.2113561119)
   _Proceedings of the National Academy of Sciences_, 2022.
 
 * Addison Hu, Mikael Kuusela, Ann Lee, Donata Giglio, and Kimberly Wood. 
@@ -42,40 +66,24 @@ Beginning Fall 2022, I am a visiting student researcher at the
   matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
   Information Processing Systems_, 2017.
 
+\* denotes equal contribution.
+
 ## Awards
 
 I am grateful to be supported by an
 [NSF GRFP](https://www.nsfgrfp.org/) award in
 Mathematical Statistics.
 
-## Projects
+## Service
 
-#### [**Epidemic tracking and forecasting**](https://delphi.cmu.edu/covidcast/)
-In March 2020, I joined the Carnegie Mellon University's
-[Delphi group](https://delphi.cmu.edu) on an emergency basis to aid in
-Covid-19 tracking and forecasting.  During that time, I helped develop and
-wrote core pipelines for [real-time Covid-19
-indicators](https://www.pnas.org/doi/full/10.1073/pnas.2111452118),
-which were made available to the general public.  We also used
-these indicators to produce
-[Covid-19 forecasts](https://zoltardata.com/model/307).
-
-Since Summer 2021, I have stepped back into a contributor role,
-occasionally assisting with projects.  In
-Fall 2021 I helped produce [influenza
-forecasts](https://github.com/cdcepi/Flusight-forecast-data/tree/master/data-forecasts/CMU-TimeSeries)
-for the 2021-2022 flu season, which we submitted to [CDC
-FluSight](https://www.cdc.gov/flu/weekly/flusight/index.html).
-
-#### [**newton-sketch**](https://github.com/huisaddison/newton-sketch)
-An [implementation](https://github.com/huisaddison/newton-sketch) of [Newton
-Sketch: A Linear-time Optimization Algorithm with Linear-Quadratic
-Convergence](https://arxiv.org/abs/1505.02250) in NumPy and Spark.
+I have served as a referee/reviewer for the Annals of Statistics;
+Journal of Machine Learning Research; Journal of Computational and Graphical
+Statistics; and Neural Information Processing Systems.
 
 ## Professional Experience
 
-#### **Data Scientist, Facebook Seattle** | July 2017 - August 2018
-I worked on Search Core Relevance, specifically an element of the Facebook
-search engine responsible for retrieving specific posts previously seen by
-a user.
+#### **Data Scientist, Facebook** | July 2017 - August 2018
+During a pre-grad-school sojourn, I worked on Search Core Relevance,
+specifically an element of the Facebook search engine responsible for
+retrieving specific posts previously seen by a user.
 

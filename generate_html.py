@@ -54,7 +54,7 @@ HEADER_TEXT_TEMPLATE = """
          </a>
          </p>
         <p><b>contact: <a class="email" href='{mail_href}'>{mail}</a></b></br>
-        <b>cv:</b> <a href="{cv}">download pdf</a><br>
+        <b>cv:</b> <a href="{cv}">pdf</a><br>
         <b>github:</b> <a href="https://github.com/huisaddison">repositories</a><br>
       </header>
 """
