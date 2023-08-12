@@ -15,8 +15,8 @@ optimization.  My main focus at this time is understanding the use of **total
 variation penalties in the scattered data, d-dimensional setting**, which can be
 thought of as a multivariate generalization of locally adaptive regression
 splines or trend filtering.  My collaborators and I have provided a treatment
-of the [piecewise constant case](https://arxiv.org/abs/2212.14514), and we are
-currently working on the piecewise linear case.  In each of these projects, I
+of the [zeroth-order case](https://arxiv.org/abs/2212.14514), and we are
+currently working on the first-order case.  In each of these projects, I
 consider the estimation problem from different angles: statistical rates,
 efficient computation, practical usage.
 
