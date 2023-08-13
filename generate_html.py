@@ -76,10 +76,8 @@ HeaderText = HEADER_TEXT_TEMPLATE.format(
     headshot_url    = '',
     headshot_text   = 'with my bicycle',
     headshot        = 'img/autumn-bicycle.jpg',
-    mail_href       = r'mail&#116;o&#58;&#109;a&#37;&#54;9&#108;%40hu&#105;' +
-                      r'saddiso%&#54;E&#46;c&#111;m',
-    mail            = r'mail&#64;&#104;&#117;i&#115;a&#100;di&#115;&#111;&#110;&' +
-                      r'#46;com',
+    mail_href       = r'&#109;&#97;&#105;&#108;&#64;&#104;&#117;&#105;&#115;&#97;&#100;&#100;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#109;',
+    mail            = r'&#109;&#97;&#105;&#108;&#64;&#104;&#117;&#105;&#115;&#97;&#100;&#100;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#109;',
 )
 
 FooterText = FOOTER_TEXT_TEMPLATE.format(
