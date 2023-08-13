@@ -2,8 +2,9 @@
 
 I am a final-year PhD student pursuing a joint degree in the Departments
 of [Statistics](https://www.cmu.edu/dietrich/statistics-datascience/index.html)
-and [Machine Learning](https://www.ml.cmu.edu) at Carnegie Mellon University.  I am
-lucky to be advised by [Ryan Tibshirani](https://www.stat.cmu.edu/~ryantibs/).
+and [Machine Learning](https://www.ml.cmu.edu) at Carnegie Mellon University.
+I am lucky to be advised by
+[Ryan Tibshirani](https://www.stat.berkeley.edu/~ryantibs/).
 
 I am currently also a visiting student researcher in the
 [Department of Statistics at UC Berkeley](https://statistics.berkeley.edu).
