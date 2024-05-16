@@ -1,7 +1,8 @@
 ## About
 
-I am a Visiting Scientist at [Latitude AI](lat.ai), working on self-driving
-vehicles.  
+I am a Visiting Scientist at [Latitude AI](lat.ai), where I work an project
+drawing on concepts from off-policy evaluation and causal inference to
+better guide the development of the self-driving stack.  
 
 In November 2023, I received a PhD
 in [Statistics](https://www.cmu.edu/dietrich/statistics-datascience/index.html)
