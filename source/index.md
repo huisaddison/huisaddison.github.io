@@ -1,13 +1,19 @@
 ## About
 
-I am a final-year PhD student pursuing a joint degree in the Departments
-of [Statistics](https://www.cmu.edu/dietrich/statistics-datascience/index.html)
-and [Machine Learning](https://www.ml.cmu.edu) at Carnegie Mellon University.
-I am lucky to be advised by
-[Ryan Tibshirani](https://www.stat.berkeley.edu/~ryantibs/).
+I am a Visiting Scientist at [Latitude AI](lat.ai), working on self-driving
+vehicles.  
 
-I am currently also a visiting student researcher in the
-[Department of Statistics at UC Berkeley](https://statistics.berkeley.edu).
+In November 2023, I received a PhD
+in [Statistics](https://www.cmu.edu/dietrich/statistics-datascience/index.html)
+and 
+[Machine Learning](https://www.ml.cmu.edu) from Carnegie Mellon University,
+where
+I was lucky to be advised by [Ryan Tibshirani](https://www.stat.berkeley.edu/~ryantibs/).
+I spent the final year and a half of graduate school as a visiting researcher
+at the
+[UC Berkeley Department of Statistics](https://statistics.berkeley.edu). 
+Prior to all this, I received a BS in Statistics from Yale University and spent
+some time working at Facebook.
 
 ## Interests
 
@@ -35,6 +41,12 @@ FluSight](https://www.cdc.gov/flu/weekly/flusight/index.html).
 
 ## Papers
 Ordered by time of completion.
+
+* Mathis et al. 
+  [Evaluation of FluSight influenza forecasting in the 2021–22 and 2022–23
+  seasons with a new target laboratory-confirmed influenza
+  hospitalizations.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10760285/)
+  Submitted, 2023.
 
 * Addison Hu, Alden Green, and Ryan Tibshirani. 
   [The Voronoigram: Minimax estimation of bounded variation functions from scattered data.](https://arxiv.org/abs/2212.14514)
@@ -71,20 +83,11 @@ Ordered by time of completion.
 
 ## Awards
 
-I am grateful to be supported by an
-[NSF GRFP](https://www.nsfgrfp.org/) award in
-Mathematical Statistics.
+I am grateful to have been supported by an [NSF GRFP](https://www.nsfgrfp.org/)
+award in Mathematical Statistics.
 
 ## Service
 
 I have served as a referee/reviewer for the Annals of Statistics;
 Journal of Machine Learning Research; Journal of Computational and Graphical
 Statistics; and Neural Information Processing Systems.
-
-## Professional Experience
-
-#### **Data Scientist, Facebook** | July 2017 - August 2018
-During a pre-grad-school sojourn, I worked on Search Core Relevance,
-specifically an element of the Facebook search engine responsible for
-retrieving specific posts previously seen by a user.
-
