@@ -46,10 +46,12 @@ HEADER_TEXT_TEMPLATE = """
              <img
              alt=""
              title="{headshot_text}"
-             class="avatar"
+             class="main-avatar"
              style="border-radius: 5px"
              height="230"
              src="{headshot}"
+             onmouseover="this.src='{alt_headshot}';"
+             onmouseout="this.src='{headshot}';"
              width="230" />
          </a>
          </p>
@@ -74,8 +76,9 @@ HeaderText = HEADER_TEXT_TEMPLATE.format(
     organization    = 'Carnegie Mellon University',
     cv              = 'pdfs/AddisonHu_CV.pdf',
     headshot_url    = '',
-    headshot_text   = 'berkeley',
+    headshot_text   = 'berkeley / trail running',
     headshot        = 'img/berkeley.png',
+    alt_headshot    = 'img/inspiration-point.png',
     mail_href       = r'&#109;&#97;&#105;&#108;&#64;&#104;&#117;&#105;&#115;&#97;&#100;&#100;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#109;',
     mail            = r'&#109;&#97;&#105;&#108;&#64;&#104;&#117;&#105;&#115;&#97;&#100;&#100;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#109;',
 )
