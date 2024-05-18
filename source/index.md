@@ -1,6 +1,6 @@
 ## About
 
-I am a Visiting Scientist at [Latitude AI](lat.ai), where I work an project
+I am a Visiting Scientist at [Latitude AI](lat.ai), where I work on a project
 drawing on concepts from off-policy evaluation and causal inference to
 better guide the development of the self-driving stack.  
 
