@@ -1,6 +1,6 @@
 ## About
 
-I am a Visiting Scientist at [Latitude AI](https://lat.ai).  My work
+I am a Senior Scientist at [Latitude AI](https://lat.ai).  My work
 draws on concepts from off-policy evaluation and causal inference to
 better guide the development of the self-driving stack.  
 
@@ -55,7 +55,7 @@ Ordered by time of completion.
 
 * Veeranjaneyulu Sadhanala, Yu-Xiang Wang, Addison Hu, and Ryan Tibshirani. 
   [Multivariate trend filtering for lattice data.](https://arxiv.org/pdf/2112.14758) 
-  Submitted, 2021.
+  _Annals of Statistics_, 2024.
 
 * Daniel McDonald, Jacob Bien\*, Alden Green\*, Addison Hu\*, et al.  [Can
   auxiliary indicators improve COVID-19 forecasting and hotspot 
@@ -74,7 +74,7 @@ Ordered by time of completion.
 * Addison Hu, Mikael Kuusela, Ann Lee, Donata Giglio, and Kimberly Wood. 
   [Spatio-temporal methods for estimating subsurface ocean thermal response 
   to tropical cyclones.](https://arxiv.org/abs/2012.15130)
-  Submitted, 2020.
+  _Advances in Statistical Climatology, Meteorology and Oceanography_, 2024.
   
 * Addison Hu and Sahand Negahban.  [Minimax estimation of bandable precision
   matrices.](https://arxiv.org/abs/1710.07006)  _Advances in Neural
