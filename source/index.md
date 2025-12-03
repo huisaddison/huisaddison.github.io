@@ -43,11 +43,21 @@ FluSight](https://www.cdc.gov/flu/weekly/flusight/index.html).
 ## Papers
 Ordered by time of completion.
 
+* Jeremy Goldwasser, Addison Hu, Alyssa Bilinski, Daniel McDonald, and Ryan Tibshirani. 
+  [Estimating time-varying epidemic severity rates with adaptive 
+  deconvolution.](https://arxiv.org/pdf/2510.16180)
+  Submitted, 2025.
+
+* Jeremy Goldwasser, Addison Hu, Alyssa Bilinski, Daniel McDonald, and Ryan Tibshirani. 
+  [Challenges in estimating time-varying epidemic Severity rates from aggregate
+  data.](https://www.medrxiv.org/content/10.1101/2024.12.27.24319518v1.full.pdf)
+  Submitted, 2024.
+
 * Mathis et al. 
   [Evaluation of FluSight influenza forecasting in the 2021–22 and 2022–23
   seasons with a new target laboratory-confirmed influenza
   hospitalizations.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10760285/)
-  Submitted, 2023.
+  _Nature Communications_, 2024.
 
 * Addison Hu, Alden Green, and Ryan Tibshirani. 
   [The Voronoigram: Minimax estimation of bounded variation functions from scattered data.](https://arxiv.org/abs/2212.14514)
