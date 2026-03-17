@@ -1,8 +1,10 @@
 ## About
 
-I am a Senior Scientist at [Latitude AI](https://lat.ai).  My work
-draws on concepts from off-policy evaluation and causal inference to
-better guide the development of the self-driving stack.  
+I am currently funemployed :)
+
+Previously, I was a Senior Scientist at [Latitude AI](https://lat.ai).  My work
+there drew on concepts from off-policy evaluation and causal inference to better
+guide the development of the self-driving stack.  
 
 In November 2023, I received a PhD
 in [Statistics](https://www.cmu.edu/dietrich/statistics-datascience/index.html)
