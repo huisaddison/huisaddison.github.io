@@ -1,11 +1,10 @@
 ## About
 
-I am currently funemployed :)
+I am a Senior Data Scientist at [Waymo](https://waymo.com), where I work on
+Safety Evaluation.  
 
-Previously, I was a Senior Scientist at [Latitude AI](https://lat.ai).  My work
-there drew on concepts from off-policy evaluation and causal inference to better
-guide the development of the self-driving stack.  
-
+Previously, I was Senior Scientist at [Latitude
+AI](https://lat.ai).
 In November 2023, I received a PhD
 in [Statistics](https://www.cmu.edu/dietrich/statistics-datascience/index.html)
 and 
