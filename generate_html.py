@@ -77,8 +77,8 @@ HeaderText = HEADER_TEXT_TEMPLATE.format(
     cv              = 'pdfs/AddisonHu_CV.pdf',
     headshot_url    = '',
     headshot_text   = 'berkeley / trail running',
-    headshot        = 'img/berkeley.png',
-    alt_headshot    = 'img/inspiration-point.png',
+    headshot        = 'img/prague.jpeg',
+    alt_headshot    = 'img/inspiration-point.jpeg',
     mail_href       = r'&#109;&#97;&#105;&#108;&#64;&#104;&#117;&#105;&#115;&#97;&#100;&#100;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#109;',
     mail            = r'&#109;&#97;&#105;&#108;&#64;&#104;&#117;&#105;&#115;&#97;&#100;&#100;&#105;&#115;&#111;&#110;&#46;&#99;&#111;&#109;',
 )
