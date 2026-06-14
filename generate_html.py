@@ -64,6 +64,8 @@ HEADER_TEXT_TEMPLATE = """
 FOOTER_TEXT_TEMPLATE = """
       <footer>
         <p><small>
+        All views my own.
+        <br>
 	    Last Updated: {today}.
         <a href="{source}">Source.</a>
       </footer>

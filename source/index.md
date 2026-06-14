@@ -1,7 +1,8 @@
 ## About
 
 I am a Senior Data Scientist at [Waymo](https://waymo.com), where I work on
-Safety Evaluation.  
+Safety Evaluation.  Our team's role is to bring formal statistical rigor
+to the release process for the Waymo Driver.
 
 Previously, I was Senior Scientist at [Latitude
 AI](https://lat.ai).
@@ -19,26 +20,32 @@ some time working at Facebook.
 
 ## Interests
 
-My work touches on statistical methodology, nonparametric theory, and
-optimization.  My main focus at this time is understanding the use of **total
-variation penalties in the scattered data, d-dimensional setting**, which can be
-thought of as a multivariate generalization of locally adaptive regression
-splines or trend filtering.  My collaborators and I have provided a treatment
-of the [zeroth-order case](https://arxiv.org/abs/2212.14514), and we are
-currently working on the first-order case.  In each of these projects, I
-consider the estimation problem from different angles: statistical rates,
-efficient computation, practical usage.
+My work at Waymo involves elements of rare event modeling, uncertainty
+quantification, and causal inference.  
 
-I also have an applied interest in **computational epidemiology**.
+My primary focus as a graduate student was to understand the use of **total
+variation penalties in the scattered data, d-dimensional setting**, which can
+be thought of as a multivariate generalization of locally adaptive regression
+splines or trend filtering.  My collaborators and I provided a comprehensive
+treatment of the [zeroth-order case](https://arxiv.org/abs/2212.14514).
+Follow-up projects driven by my collaborators examine the first-order case
+(forthcoming) and higher-order cases (aspirational).  In each of these
+projects, we consider the estimation problem from the key angles: statistical
+rates, efficient computation, practical usage.
+
+My secondary focus in graduate school was in **computational epidemiology**.
 At the beginning of the Covid-19 pandemic, I joined CMU's
 [Delphi group](https://delphi.cmu.edu) on an emergency basis
 to help produce [real-time Covid-19
 indicators](https://www.pnas.org/doi/full/10.1073/pnas.2111452118)
-and [forecasts](https://zoltardata.com/model/307).  I found the work compelling
-enough to continue working on related problems, including [forecasting
+and [forecasts](https://zoltardata.com/model/307).  I then continued
+to work on related problems, including [forecasting
 influenza](https://github.com/cdcepi/Flusight-forecast-data/tree/master/data-forecasts/CMU-TimeSeries)
 for [CDC
 FluSight](https://www.cdc.gov/flu/weekly/flusight/index.html).
+Although I did not plan to do this work when I started graduate school, it
+provided a purposeful outlet during the pandemic, and I learned a lot through
+the experience.
 
 
 ## Papers
@@ -47,12 +54,12 @@ Ordered by time of completion.
 * Jeremy Goldwasser, Addison Hu, Alyssa Bilinski, Daniel McDonald, and Ryan Tibshirani. 
   [Estimating time-varying epidemic severity rates with adaptive 
   deconvolution.](https://arxiv.org/pdf/2510.16180)
-  Submitted, 2025.
+  To appear in the _Annals of Applied Statistics_, 2026.
 
 * Jeremy Goldwasser, Addison Hu, Alyssa Bilinski, Daniel McDonald, and Ryan Tibshirani. 
-  [Challenges in estimating time-varying epidemic Severity rates from aggregate
+  [Challenges in estimating time-varying epidemic severity rates from aggregate
   data.](https://www.medrxiv.org/content/10.1101/2024.12.27.24319518v1.full.pdf)
-  Submitted, 2024.
+  2024.
 
 * Mathis et al. 
   [Evaluation of FluSight influenza forecasting in the 2021–22 and 2022–23
@@ -62,7 +69,7 @@ Ordered by time of completion.
 
 * Addison Hu, Alden Green, and Ryan Tibshirani. 
   [The Voronoigram: Minimax estimation of bounded variation functions from scattered data.](https://arxiv.org/abs/2212.14514)
-  Submitted, 2022.
+  2022.
 
 * Veeranjaneyulu Sadhanala, Yu-Xiang Wang, Addison Hu, and Ryan Tibshirani. 
   [Multivariate trend filtering for lattice data.](https://arxiv.org/pdf/2112.14758) 
