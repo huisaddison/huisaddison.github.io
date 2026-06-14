@@ -21,32 +21,31 @@ some time working at Facebook.
 ## Interests
 
 My work at Waymo involves elements of rare event modeling, uncertainty
-quantification, and causal inference.  
+quantification, and causal inference.
 
-My primary focus as a graduate student was to understand the use of **total
-variation penalties in the scattered data, d-dimensional setting**, which can
-be thought of as a multivariate generalization of locally adaptive regression
-splines or trend filtering.  My collaborators and I provided a comprehensive
-treatment of the [zeroth-order case](https://arxiv.org/abs/2212.14514).
-Follow-up projects driven by my collaborators examine the first-order case
-(forthcoming) and higher-order cases (aspirational).  In each of these
-projects, we consider the estimation problem from the key angles: statistical
-rates, efficient computation, practical usage.
+My primary focus as a graduate student was to understand the use of 
+[total variation penalties in the scattered data, d-dimensional setting](pdfs/AddisonHu_Thesis.pdf),
+which can be thought of as a multivariate generalization of locally adaptive
+regression splines or trend filtering.  My collaborators and I provided a
+comprehensive treatment of the [zeroth-order
+case](https://arxiv.org/abs/2212.14514).  Follow-up projects driven by my
+collaborators examine the first-order case (forthcoming) and higher-order cases
+(aspirational).  In each of these projects, we consider the estimation problem
+from the key angles: statistical rates, efficient computation, practical usage.
 
-My secondary focus in graduate school was in **computational epidemiology**.
+My secondary focus in graduate school was in computational epidemiology.
 At the beginning of the Covid-19 pandemic, I joined CMU's
 [Delphi group](https://delphi.cmu.edu) on an emergency basis
 to help produce [real-time Covid-19
 indicators](https://www.pnas.org/doi/full/10.1073/pnas.2111452118)
-and [forecasts](https://zoltardata.com/model/307).  I then continued
-to work on related problems, including [forecasting
+and [forecasts](https://zoltardata.com/model/307).  I found the work
+compelling and continued to work on related problems, including [forecasting
 influenza](https://github.com/cdcepi/Flusight-forecast-data/tree/master/data-forecasts/CMU-TimeSeries)
 for [CDC
 FluSight](https://www.cdc.gov/flu/weekly/flusight/index.html).
 Although I did not plan to do this work when I started graduate school, it
-provided a purposeful outlet during the pandemic, and I learned a lot through
-the experience.
-
+provided a purposeful outlet during the pandemic, and I learned a lot
+through the experience.
 
 ## Papers
 Ordered by time of completion.
