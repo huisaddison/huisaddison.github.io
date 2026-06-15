@@ -31,7 +31,7 @@ comprehensive treatment of the [zeroth-order
 case](https://arxiv.org/abs/2212.14514).  Follow-up projects driven by my
 collaborators examine the first-order case (forthcoming) and higher-order cases
 (aspirational).  In each of these projects, we consider the estimation problem
-from the key angles: statistical rates, efficient computation, practical usage.
+from the key angles: statistical theory, efficient computation, practical usage.
 
 My secondary focus in graduate school was in computational epidemiology.
 At the beginning of the Covid-19 pandemic, I joined CMU's
@@ -43,9 +43,6 @@ compelling and continued to work on related problems, including [forecasting
 influenza](https://github.com/cdcepi/Flusight-forecast-data/tree/master/data-forecasts/CMU-TimeSeries)
 for [CDC
 FluSight](https://www.cdc.gov/flu/weekly/flusight/index.html).
-Although I did not plan to do this work when I started graduate school, it
-provided a purposeful outlet during the pandemic, and I learned a lot
-through the experience.
 
 ## Papers
 Ordered by time of completion.
@@ -109,3 +106,8 @@ award in Mathematical Statistics.
 I have served as a referee/reviewer for the Annals of Statistics;
 Journal of Machine Learning Research; Journal of Computational and Graphical
 Statistics; and Neural Information Processing Systems.
+
+## Personal
+
+I am personally partial towards [Robert Tibshirani's philosophy of
+life](https://tibshirani.su.domains/wisdom.html).
